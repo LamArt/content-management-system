@@ -1,7 +1,13 @@
+import os
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+env = environ.Env()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -17,13 +23,23 @@ ALLOWED_HOSTS = []
 # Application definition
 
 LOCAL_APPS = [
-    'apps.api.apps.ApiConfig',
-    'apps.contacts.apps.ContactConfig',
+    "apps.api.apps.ApiConfig",
+    "apps.services.apps.ServiceConfig",
+    "apps.portfolios.apps.PortfolioConfig",
+    "apps.company_description.apps.CompanyDescriptionConfig",
+    "apps.feedback_forms.apps.FeedbackFormsConfig",
+    "apps.feedbacks.apps.FeedbacksConfig",
+    "apps.employees.apps.EmployeesConfig",
+    "apps.seo.apps.SeoConfig",
 ]
 
 THIRD_PARTY_APPS = [
-    'rest_framework',
-    'drf_yasg',
+    "rest_framework",
+    "drf_yasg",
+    "corsheaders",
+    "tinymce",
+    "adminsortable2",
+    "solo",
 ]
 
 INSTALLED_APPS = [
@@ -71,10 +87,7 @@ WSGI_APPLICATION = 'content_management_system.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.db("DATABASE_URL")
 }
 
 # Password validation
@@ -111,7 +124,33 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Media root (jpeg, svg, mp4 etc.)
+
+MEDIA_ROOT_NAME = "media"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_ROOT_NAME)
+
+MEDIA_URL = "/media/"
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REST FRAMEWORK SETTINGS
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+}
+
+# Email settings
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = env("EMAIL_HOST", default="smtp.yandex.ru")
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="user@yandex.com")
+DEFAULT_FROM_EMAIL = env("EMAIL_HOST_USER", default="user@yandex.com")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="password")

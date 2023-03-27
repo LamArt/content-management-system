@@ -1,0 +1,207 @@
+[
+{
+    "model": "feedback_forms.feedbackform",
+    "pk": 1,
+    "fields": {
+        "created_at": "2023-02-07T10:31:58.475Z",
+        "updated_at": "2023-03-02T18:59:57.340Z",
+        "name": "Контакты",
+        "notification_success_template": "Форма успешно отправлена",
+        "notification_failure_template": "При отправке формы возникла ошибка",
+        "notification_manager_email_template": "<p><span style=\"font-size: 18pt; font-family: 'times new roman', times, serif;\">Форма: {{feedback_form_log.feedback_form.name}}</span></p>\r\n<p><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Имя &mdash; {{feedback_form_log.name}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Телефон &mdash; <strong>{{feedback_form_log.phone_number}}</strong></span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Email &mdash; {{feedback_form_log.email_address}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Сообщение &mdash; {{feedback_form_log.message}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Удобное время &mdash; {{feedback_form_log.convenient_time}}</span></p>",
+        "confirmation_email": false,
+        "confirmation_email_template": "<p style=\"text-align: left;\"><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Здравствуйте!</span><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Отправленная форма была прочитана администраторами,&nbsp;скоро с вами свяжутся.</span><br /><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Благодарим за&nbsp;обращение.</span><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">С уважением, команда Стоматологической мастерской Елены Гончаровой.</span></p>"
+    }
+},
+{
+    "model": "feedback_forms.feedbackform",
+    "pk": 2,
+    "fields": {
+        "created_at": "2023-02-08T07:51:00.076Z",
+        "updated_at": "2023-03-02T18:59:34.018Z",
+        "name": "Услуги",
+        "notification_success_template": "Форма успешно отправлена",
+        "notification_failure_template": "При отправке формы возникла ошибка",
+        "notification_manager_email_template": "<p><span style=\"font-size: 18pt; font-family: 'times new roman', times, serif;\">Форма: {{feedback_form_log.feedback_form.name}}</span></p>\r\n<p><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Услуга &mdash; {{feedback_form_log.service_name}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Имя &mdash; {{feedback_form_log.name}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Телефон &mdash; <strong>{{feedback_form_log.phone_number}}</strong></span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Email &mdash; {{feedback_form_log.email_address}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Сообщение &mdash; {{feedback_form_log.message}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Удобное время &mdash; {{feedback_form_log.convenient_time}}</span></p>",
+        "confirmation_email": false,
+        "confirmation_email_template": "<p style=\"text-align: left;\"><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Здравствуйте!</span><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Отправленная форма была прочитана администраторами,&nbsp;скоро с вами свяжутся.</span><br /><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Благодарим за&nbsp;обращение.</span><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">С уважением, команда Стоматологической мастерской Елены Гончаровой.</span></p>"
+    }
+},
+{
+    "model": "feedback_forms.feedbackform",
+    "pk": 3,
+    "fields": {
+        "created_at": "2023-02-08T07:51:22.527Z",
+        "updated_at": "2023-03-02T18:59:06.184Z",
+        "name": "Получить консультацию",
+        "notification_success_template": "Форма успешно отправлена",
+        "notification_failure_template": "При отправке формы возникла ошибка",
+        "notification_manager_email_template": "<p><span style=\"font-size: 18pt; font-family: 'times new roman', times, serif;\">Форма: {{feedback_form_log.feedback_form.name}}</span></p>\r\n<p><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Имя &mdash; {{feedback_form_log.name}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Телефон &mdash; <strong>{{feedback_form_log.phone_number}}</strong></span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Email &mdash; {{feedback_form_log.email_address}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Сообщение &mdash; {{feedback_form_log.message}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Удобное время &mdash; {{feedback_form_log.convenient_time}}<br /></span><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Страница отправки &mdash; {{feedback_form_log.page_name}}</span></p>",
+        "confirmation_email": false,
+        "confirmation_email_template": "<p style=\"text-align: left;\"><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Здравствуйте!</span><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Отправленная форма была прочитана администраторами,&nbsp;скоро с вами свяжутся.</span><br /><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Благодарим за&nbsp;обращение.</span><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">С уважением, команда Стоматологической мастерской Елены Гончаровой.</span></p>"
+    }
+},
+{
+    "model": "feedback_forms.feedbackform",
+    "pk": 4,
+    "fields": {
+        "created_at": "2023-02-08T07:51:51.921Z",
+        "updated_at": "2023-03-02T19:04:41.916Z",
+        "name": "Запись к специалисту",
+        "notification_success_template": "Форма успешно отправлена",
+        "notification_failure_template": "При отправке формы возникла ошибка",
+        "notification_manager_email_template": "<p><span style=\"font-size: 18pt; font-family: 'times new roman', times, serif;\">Форма &mdash; {{feedback_form_log.feedback_form.name}}</span></p>\r\n<p><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">ФИО специалиста &mdash; {{feedback_form_log.doctor_name}}<br />Имя &mdash; {{feedback_form_log.name}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Телефон &mdash; <strong>{{feedback_form_log.phone_number}}</strong></span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Email &mdash; {{feedback_form_log.email_address}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Сообщение &mdash; {{feedback_form_log.message}}</span><br /><span style=\"font-size: 14pt; font-family: 'times new roman', times, serif;\">Удобное время &mdash; {{feedback_form_log.convenient_time}}</span></p>",
+        "confirmation_email": false,
+        "confirmation_email_template": "<p style=\"text-align: left;\"><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Здравствуйте!</span><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Отправленная форма была прочитана администраторами,&nbsp;скоро с вами свяжутся.</span><br /><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">Благодарим за&nbsp;обращение.</span><br /><span style=\"font-family: 'times new roman', times, serif; font-size: 14pt;\">С уважением, команда Стоматологической мастерской Елены Гончаровой.</span></p>"
+    }
+},
+{
+    "model": "feedback_forms.field",
+    "pk": 1,
+    "fields": {
+        "created_at": "2023-02-07T10:32:03.994Z",
+        "updated_at": "2023-02-08T15:52:25.038Z",
+        "name": "Имя",
+        "marker_template": "Введите имя",
+        "required_field": true,
+        "type": "String",
+        "feedback_forms": [
+            1,
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "feedback_forms.field",
+    "pk": 2,
+    "fields": {
+        "created_at": "2023-02-07T10:32:38.778Z",
+        "updated_at": "2023-02-08T15:52:19.064Z",
+        "name": "Телефон",
+        "marker_template": "Введите номер телефона",
+        "required_field": true,
+        "type": "Phone",
+        "feedback_forms": [
+            1,
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "feedback_forms.field",
+    "pk": 3,
+    "fields": {
+        "created_at": "2023-02-07T10:32:59.418Z",
+        "updated_at": "2023-02-08T15:52:11.216Z",
+        "name": "Email",
+        "marker_template": "Введите email",
+        "required_field": false,
+        "type": "Email",
+        "feedback_forms": [
+            1,
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "feedback_forms.field",
+    "pk": 4,
+    "fields": {
+        "created_at": "2023-02-07T10:33:29.968Z",
+        "updated_at": "2023-02-08T15:52:06.561Z",
+        "name": "Сообщение",
+        "marker_template": "Введите сообщение",
+        "required_field": true,
+        "type": "String",
+        "feedback_forms": [
+            1,
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "feedback_forms.field",
+    "pk": 5,
+    "fields": {
+        "created_at": "2023-02-07T10:35:04.230Z",
+        "updated_at": "2023-02-08T15:51:56.984Z",
+        "name": "Удобное время",
+        "marker_template": "Удобное время",
+        "required_field": false,
+        "type": "String",
+        "feedback_forms": [
+            1,
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "feedback_forms.field",
+    "pk": 6,
+    "fields": {
+        "created_at": "2023-02-08T07:55:50.600Z",
+        "updated_at": "2023-02-08T15:51:47.721Z",
+        "name": "Комментарий",
+        "marker_template": "Комментарий",
+        "required_field": true,
+        "type": "String",
+        "feedback_forms": [
+            4
+        ]
+    }
+},
+{
+    "model": "feedback_forms.field",
+    "pk": 7,
+    "fields": {
+        "created_at": "2023-02-08T07:59:41.825Z",
+        "updated_at": "2023-02-08T15:51:41.052Z",
+        "name": "ФИО",
+        "marker_template": "ФИО специалиста",
+        "required_field": false,
+        "type": "Hidden",
+        "feedback_forms": [
+            4
+        ]
+    }
+},
+{
+    "model": "feedback_forms.field",
+    "pk": 8,
+    "fields": {
+        "created_at": "2023-02-08T08:01:50.264Z",
+        "updated_at": "2023-02-08T15:51:29.363Z",
+        "name": "Название страницы",
+        "marker_template": "Название страницы",
+        "required_field": false,
+        "type": "Hidden",
+        "feedback_forms": [
+            3
+        ]
+    }
+},
+{
+    "model": "feedback_forms.field",
+    "pk": 9,
+    "fields": {
+        "created_at": "2023-02-08T08:02:41.257Z",
+        "updated_at": "2023-02-08T15:53:31.499Z",
+        "name": "Название услуги",
+        "marker_template": "Название услуги",
+        "required_field": false,
+        "type": "Hidden",
+        "feedback_forms": [
+            2
+        ]
+    }
+}
+]

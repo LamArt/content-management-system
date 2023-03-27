@@ -1,0 +1,36 @@
+[
+{
+    "model": "company_description.contact",
+    "pk": 1,
+    "fields": {
+        "address": "",
+        "work_schedule": "",
+        "phone_number_cell": null,
+        "phone_number_home": null,
+        "email_address": null,
+        "entance_diagram": "",
+        "parking_place": "",
+        "yandex_map": "",
+        "links": []
+    }
+},
+{
+    "model": "company_description.clinicdescription",
+    "pk": 1,
+    "fields": {
+        "client_approach_description": null,
+        "video": null,
+        "clinic_main_doctor_description": "",
+        "image": "",
+        "clinic_history": ""
+    }
+},
+{
+    "model": "company_description.patientinfo",
+    "pk": 1,
+    "fields": {
+        "typical_contract": "",
+        "personal_data_policy": ""
+    }
+}
+]
