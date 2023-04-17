@@ -14,7 +14,11 @@ from apps.services.models import (
 
 
 @admin.register(Service)
-class ServiceAdmin(PageSEOAdminMixin(prepopulated_slug_field="name"), SortableAdminMixin, admin.ModelAdmin):
+class ServiceAdmin(
+    PageSEOAdminMixin(prepopulated_slug_field="name"),
+    SortableAdminMixin,
+    admin.ModelAdmin,
+):
     list_display = (
         "name",
         "code",

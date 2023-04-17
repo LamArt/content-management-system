@@ -3,7 +3,10 @@ from rest_framework.serializers import ModelSerializer
 from apps.employees.models import (
     JuniorMedicalStaff,
     Administrator,
-    Director, Employee, EmployeeEducationImage, EmployeeCertificateImage,
+    Director,
+    Employee,
+    EmployeeEducationImage,
+    EmployeeCertificateImage,
 )
 from apps.seo.utils import PageSEOSerializerMixin
 

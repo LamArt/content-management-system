@@ -44,3 +44,4 @@ typing_extensions==4.5.0
 tzdata==2022.7
 uritemplate==4.1.1
 urllib3==1.26.14
+black==23.3.0

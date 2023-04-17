@@ -1,7 +1,7 @@
 from django.urls import include, path
 from rest_framework import routers
 
-from apps.company_description.views import (
+from apps.company_description.api.views import (
     ContactViewSet,
     LinkViewSet,
     ClinicDescriptionViewSet,

@@ -2,7 +2,9 @@ from django.test import TestCase
 from rest_framework.test import APIClient
 
 from apps.company_description.models import MedicalProfessionalProvisions
-from apps.company_description.tests.utils import create_test_medical_professional_provisions
+from apps.company_description.tests.utils import (
+    create_test_medical_professional_provisions,
+)
 
 
 class MedicalProfessionalProvisionsTests(TestCase):

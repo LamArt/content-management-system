@@ -1,8 +1,5 @@
-from django.urls import path
+from django.urls import path, include
 
-from apps.common.views import LastUpdateTimeApi
+from apps.common.views import IndexView
 
-
-urlpatterns = [
-    path("last-update-time/", LastUpdateTimeApi.as_view(), name=LastUpdateTimeApi.name),
-]
+urlpatterns = [path("", IndexView.as_view())]

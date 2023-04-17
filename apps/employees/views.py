@@ -3,12 +3,18 @@ from rest_framework import viewsets
 from apps.employees.models import (
     JuniorMedicalStaff,
     Administrator,
-    Director, Employee, EmployeeEducationImage, EmployeeCertificateImage,
+    Director,
+    Employee,
+    EmployeeEducationImage,
+    EmployeeCertificateImage,
 )
 from apps.employees.serializers import (
     JuniorMedicalStaffSerializer,
     AdministratorSerializer,
-    DirectorSerializer, EmployeeSerializer, EmployeeEducationImageSerializer, EmployeeCertificateImageSerializer,
+    DirectorSerializer,
+    EmployeeSerializer,
+    EmployeeEducationImageSerializer,
+    EmployeeCertificateImageSerializer,
 )
 from apps.seo.utils import PageSEOViewMixin
 

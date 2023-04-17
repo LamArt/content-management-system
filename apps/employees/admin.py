@@ -5,7 +5,10 @@ from apps.common.services import reorder_models
 from apps.employees.models import (
     JuniorMedicalStaff,
     Administrator,
-    Director, EmployeeCertificateImage, EmployeeEducationImage, Employee,
+    Director,
+    EmployeeCertificateImage,
+    EmployeeEducationImage,
+    Employee,
 )
 from apps.images.admin import BaseImageAdmin
 from apps.seo.utils import PageSEOAdminMixin
@@ -85,7 +88,9 @@ class DirectorAdmin(SortableAdminMixin, admin.ModelAdmin):
 
 
 @admin.register(Employee)
-class EmployeeAdmin(PageSEOAdminMixin("full_name"), SortableAdminMixin, admin.ModelAdmin):
+class EmployeeAdmin(
+    PageSEOAdminMixin("full_name"), SortableAdminMixin, admin.ModelAdmin
+):
     list_display = (
         "full_name",
         "image_photo",
