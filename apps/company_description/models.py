@@ -99,23 +99,23 @@ class StaffImage(BaseOrderingModel):
         verbose_name_plural = "Фотографии с персоналом"
 
 
-class ClinicDescription(SingletonModel):
+class CompanyDescription(SingletonModel): # RENAMING!!!
     client_approach_description = models.CharField(
         max_length=2048,
         null=True,
         blank=True,
-        verbose_name="Описание подхода к пациенту",
+        verbose_name="Описание подхода к клиенту",
     )
     video = models.URLField(
         null=True,
         blank=True,
-        verbose_name="Видеоролик с выступлением главного врача клиники",
+        verbose_name="Видеоролик с выступлением директора компании",
     )
-    clinic_main_doctor_description = models.TextField(
+    company_main_director_description = models.TextField(
         max_length=2048,
         null=True,
         blank=True,
-        verbose_name="Описание о главном враче клиники",
+        verbose_name="Описание директора компании",
     )
     image = models.ImageField(
         upload_to="images/%Y/%m/%d/",
@@ -123,8 +123,8 @@ class ClinicDescription(SingletonModel):
         blank=True,
         verbose_name="Фото главного врача в клинике",
     )
-    clinic_history = models.TextField(
-        max_length=2048, null=True, blank=True, verbose_name="История клиники"
+    company_history = models.TextField(
+        max_length=2048, null=True, blank=True, verbose_name="История компании"
     )
 
     def __str__(self):

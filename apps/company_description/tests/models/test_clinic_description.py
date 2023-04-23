@@ -2,8 +2,8 @@ from django.test import TestCase
 from django.db.utils import IntegrityError
 from rest_framework.test import APIClient
 
-from apps.company_description.models import ClinicDescription
-from apps.company_description.tests.utils import create_test_clinic_description
+from apps.company_description.models import CompanyDescription
+from apps.company_description.tests.utils import create_test_company_description
 
 
 class ClinicDescriptionTests(TestCase):
@@ -14,7 +14,7 @@ class ClinicDescriptionTests(TestCase):
         """
         Ensure we can create clinic description. Provide singleton model
         """
-        clinic_description = create_test_clinic_description()
-        self.assertTrue(isinstance(clinic_description, ClinicDescription))
-        self.assertEqual(len(ClinicDescription.objects.all()), 1)
-        self.assertRaises(IntegrityError, create_test_clinic_description)
+        clinic_description = create_test_company_description()
+        self.assertTrue(isinstance(clinic_description, CompanyDescription))
+        self.assertEqual(len(CompanyDescription.objects.all()), 1)
+        self.assertRaises(IntegrityError, create_test_company_description)

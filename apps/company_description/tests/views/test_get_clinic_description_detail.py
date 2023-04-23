@@ -3,7 +3,7 @@ from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from apps.company_description.tests.utils import create_test_clinic_description
+from apps.company_description.tests.utils import create_test_company_description
 
 
 class ClinicDescriptionDetailApiTests(TestCase):
@@ -17,7 +17,7 @@ class ClinicDescriptionDetailApiTests(TestCase):
         """
         Ensure we can get clinic description detail.
         """
-        clinic_description = create_test_clinic_description()
+        clinic_description = create_test_company_description()
         response = self.client.get(
             self.get_clinic_description_url(clinic_description.id)
         )

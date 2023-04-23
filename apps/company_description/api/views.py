@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from apps.company_description.models import (
     Link,
     Contact,
-    ClinicDescription,
+    CompanyDescription,
     PatientInfo,
     ConstituentDocument,
     Partner,
@@ -15,7 +15,7 @@ from apps.company_description.models import (
 from apps.company_description.api.serializers import (
     LinkSerializer,
     ContactSerializer,
-    ClinicDescriptionSerizlier,
+    CompanyDescriptionSerializer,
     PatientInfoSerializer,
     ConstituentDocumentSerializer,
     PartnerSerializer,
@@ -42,8 +42,8 @@ class ContactViewSet(viewsets.ModelViewSet):
 
 class ClinicDescriptionViewSet(viewsets.ModelViewSet):
     basename = "clinic-description"
-    queryset = ClinicDescription.objects.all()
-    serializer_class = ClinicDescriptionSerizlier
+    queryset = CompanyDescription.objects.all()
+    serializer_class = CompanyDescriptionSerializer
     http_method_names = ["get"]
 
 

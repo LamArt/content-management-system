@@ -8,7 +8,7 @@ from apps.company_description.models import (
     Link,
     CompanyImage,
     StaffImage,
-    ClinicDescription,
+    CompanyDescription,
     PatientInfo,
     ConstituentDocument,
     InformedPatientConsent,
@@ -125,14 +125,14 @@ class StaffImageAdmin(SortableAdminMixin, OrderingModelAdmin):
     search_fields = ("name",)
 
 
-@admin.register(ClinicDescription)
-class ClinicDescriptionAdmin(SingletonModelAdmin):
+@admin.register(CompanyDescription)
+class CompanyDescriptionAdmin(SingletonModelAdmin):
     list_display = (
         "client_approach_description",
         "video",
-        "clinic_main_doctor_description",
+        "company_main_director_description",
         "image",
-        "clinic_history",
+        "company_history",
     )
     fieldsets = (
         (
@@ -141,9 +141,9 @@ class ClinicDescriptionAdmin(SingletonModelAdmin):
                 "fields": (  # exclude not fields
                     "client_approach_description",
                     "video",
-                    "clinic_main_doctor_description",
+                    "company_main_director_description",
                     "image",
-                    "clinic_history",
+                    "company_history",
                 )
             },
         ),

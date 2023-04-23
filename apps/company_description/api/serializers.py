@@ -3,7 +3,7 @@ from rest_framework import serializers
 from apps.company_description.models import (
     Contact,
     Link,
-    ClinicDescription,
+    CompanyDescription,
     PatientInfo,
     ConstituentDocument,
     Partner,
@@ -27,9 +27,9 @@ class LinkSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ClinicDescriptionSerizlier(serializers.ModelSerializer):
+class CompanyDescriptionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ClinicDescription
+        model = CompanyDescription
         fields = "__all__"
 
 

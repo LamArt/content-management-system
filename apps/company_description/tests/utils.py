@@ -3,7 +3,7 @@ from apps.company_description.models import (
     Contact,
     CompanyImage,
     StaffImage,
-    ClinicDescription,
+    CompanyDescription,
     PatientInfo,
     ConstituentDocument,
     InformedPatientConsent,
@@ -52,8 +52,8 @@ def create_test_staff_image() -> StaffImage:
     return staff_image
 
 
-def create_test_clinic_description() -> ClinicDescription:
-    clinic_description = ClinicDescription.objects.create(
+def create_test_company_description() -> CompanyDescription: # TEEEESTING!!!
+    company_description = CompanyDescription.objects.create(
         client_approach_description="Качественно – это значит используются современные гибридные"
         " и на основе нано-технологий материалы, имеющие очень длительный срок эксплуатации, которые "
         "прекрасно полируются и соответствуют различным оттенкам на любой выбор и особенностям Ваших зубов. \n "
@@ -66,7 +66,7 @@ def create_test_clinic_description() -> ClinicDescription:
         "это и созданная у нас доверительная обстановка, и просторный кабинет, и оборудование, "
         "позволяющее проводить все операции безболезненно и физиологически удобно.",
         video="https://www.youtube.com/watch?v=b3ootXSAaqE",
-        clinic_main_doctor_description="Качественно – это значит используются современные гибридные"
+        company_main_director_description="Качественно – это значит используются современные гибридные"
         " и на основе нано-технологий материалы, имеющие очень длительный срок эксплуатации, которые "
         "прекрасно полируются и соответствуют различным оттенкам на любой выбор и особенностям Ваших зубов. \n "
         "Красиво – это, прежде всего, гармонично Вам и Вашему представлению о красоте. Кому-то нужна "
@@ -78,7 +78,7 @@ def create_test_clinic_description() -> ClinicDescription:
         "это и созданная у нас доверительная обстановка, и просторный кабинет, и оборудование, "
         "позволяющее проводить все операции безболезненно и физиологически удобно.",
         image="images/2023/02/16/example.jpeg",
-        clinic_history="Качественно – это значит используются современные гибридные"
+        company_history="Качественно – это значит используются современные гибридные"
         " и на основе нано-технологий материалы, имеющие очень длительный срок эксплуатации, которые "
         "прекрасно полируются и соответствуют различным оттенкам на любой выбор и особенностям Ваших зубов. \n "
         "Красиво – это, прежде всего, гармонично Вам и Вашему представлению о красоте. Кому-то нужна "
@@ -90,7 +90,7 @@ def create_test_clinic_description() -> ClinicDescription:
         "это и созданная у нас доверительная обстановка, и просторный кабинет, и оборудование, "
         "позволяющее проводить все операции безболезненно и физиологически удобно.",
     )
-    return clinic_description
+    return company_description
 
 
 def create_test_patient_info() -> PatientInfo:
