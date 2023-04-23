@@ -17,6 +17,7 @@ from apps.company_description.models import (
 )
 from apps.common.services import reorder_models
 from apps.files.admin import BaseFileAdmin
+from apps.ordering.admin import OrderingModelAdmin
 
 
 @admin.register(Contact)
@@ -60,7 +61,7 @@ class ContactAdmin(SingletonModelAdmin):
 
 
 @admin.register(Link)
-class LinkAdmin(admin.ModelAdmin):
+class LinkAdmin(SortableAdminMixin, OrderingModelAdmin):
     list_display = (
         "link_address",
         "link_for_messenger",
@@ -91,7 +92,7 @@ class LinkAdmin(admin.ModelAdmin):
 
 
 @admin.register(ClinicImage)
-class ClinicImageAdmin(SortableAdminMixin, admin.ModelAdmin):
+class ClinicImageAdmin(SortableAdminMixin, OrderingModelAdmin):
     list_display = ("name",)
     fieldsets = (
         (
@@ -105,10 +106,6 @@ class ClinicImageAdmin(SortableAdminMixin, admin.ModelAdmin):
         ),
     )
     search_fields = ("name",)
-
-    def delete_queryset(self, *args, **kwargs):
-        super().delete_queryset(*args, **kwargs)
-        reorder_models(ClinicImage)
 
 
 @admin.register(StaffImage)

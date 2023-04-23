@@ -32,6 +32,7 @@ LOCAL_APPS = [
     "apps.feedbacks.apps.FeedbacksConfig",
     "apps.employees.apps.EmployeesConfig",
     "apps.seo.apps.SeoConfig",
+    "apps.ordering.apps.OrderingConfig",
 ]
 
 THIRD_PARTY_APPS = [

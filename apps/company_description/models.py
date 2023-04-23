@@ -3,11 +3,11 @@ from tinymce.models import HTMLField
 from solo.models import SingletonModel
 
 from apps.common.models import BaseModel
-from apps.common.services import reorder_models
+from apps.ordering.models import BaseOrderingModel
 from apps.files.models import BaseFileModel
 
 
-class Link(BaseModel):
+class Link(BaseOrderingModel):
     link_address = models.URLField(verbose_name="Ссылка")
     link_for_messenger = models.BooleanField(default=False, verbose_name="Мессенджер")
     link_for_social_network = models.BooleanField(
@@ -20,10 +20,9 @@ class Link(BaseModel):
     def __str__(self):
         return f"{self.link_address}"
 
-    class Meta:
+    class Meta(BaseOrderingModel.Meta):
         verbose_name = "Ссылка"
         verbose_name_plural = "Ссылки"
-        ordering = ["link_address"]
 
 
 class Contact(SingletonModel):
@@ -70,30 +69,19 @@ class Contact(SingletonModel):
         ordering = ["id"]  # SOLVE UnorderedObjectListWarning
 
 
-class ClinicImage(BaseModel):
+class ClinicImage(BaseOrderingModel):
     name = models.CharField(max_length=256, verbose_name="Имя изображения")
     path = models.ImageField(
         upload_to="images/%Y/%m/%d/",
         verbose_name="Фотографии из клиники",
     )
 
-    ordering = models.PositiveIntegerField(
-        default=0,
-        blank=False,
-        null=False,
-    )
-
-    def delete(self, *args, **kwargs):
-        super().delete(*args, **kwargs)
-        reorder_models(type(self))
-
     def __str__(self):
         return f"{self.name}"
 
-    class Meta:
+    class Meta(BaseOrderingModel.Meta):
         verbose_name = "Фотография из клиники"
         verbose_name_plural = "Фотографии из клиники"
-        ordering = ["ordering"]
 
 
 class StaffImage(BaseModel):
