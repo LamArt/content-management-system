@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 
 from apps.employees.models import (
-    JuniorMedicalStaff,
+    JuniorStaff,
     Administrator,
     Director,
     Employee,
@@ -11,9 +11,9 @@ from apps.employees.models import (
 from apps.seo.utils import PageSEOSerializerMixin
 
 
-class JuniorMedicalStaffSerializer(ModelSerializer):
+class JuniorStaffSerializer(ModelSerializer):
     class Meta:
-        model = JuniorMedicalStaff
+        model = JuniorStaff
         fields = "__all__"
 
 

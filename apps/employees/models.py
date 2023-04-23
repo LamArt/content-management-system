@@ -1,13 +1,12 @@
 from django.db import models
 
-from apps.common.models import BaseModel
-from apps.common.services import reorder_models
 from apps.images.models import BaseImageModel
 from apps.seo.models import PageSEOMixin
 from apps.services.models import Service
+from apps.ordering.models import BaseOrderingModel
 
 
-class BaseEmployeeModel(BaseModel):
+class BaseEmployeeModel(BaseOrderingModel):
     full_name = models.CharField(max_length=256, verbose_name="ФИО")
     image_photo = models.ImageField(
         upload_to="images/%Y/%m/%d/",
@@ -15,42 +14,30 @@ class BaseEmployeeModel(BaseModel):
         blank=True,
         verbose_name="Фотография сотрудника",
     )
-    ordering = models.PositiveIntegerField(
-        default=0,
-        blank=False,
-        null=False,
-    )
-
-    def delete(self, *args, **kwargs):
-        super().delete(*args, **kwargs)
-        reorder_models(type(self))
 
     def __str__(self):
         return f"{self.full_name}"
 
-    class Meta:
+    class Meta(BaseOrderingModel.Meta):
         abstract = True
 
 
-class JuniorMedicalStaff(BaseEmployeeModel):
-    class Meta:
-        verbose_name = "Врач младшего медперсонала"
-        verbose_name_plural = "Врачи младшего медперсонала"
-        ordering = ["ordering"]
+class JuniorStaff(BaseEmployeeModel):
+    class Meta(BaseOrderingModel.Meta):
+        verbose_name = "Младший персонал"
+        verbose_name_plural = "Младший персонал"
 
 
 class Administrator(BaseEmployeeModel):
-    class Meta:
+    class Meta(BaseOrderingModel.Meta):
         verbose_name = "Администратор"
         verbose_name_plural = "Администраторы"
-        ordering = ["ordering"]
 
 
 class Director(BaseEmployeeModel):
-    class Meta:
+    class Meta(BaseOrderingModel.Meta):
         verbose_name = "Руководитель"
         verbose_name_plural = "Руководители"
-        ordering = ["ordering"]
 
 
 class EmployeeEducationImage(BaseImageModel):

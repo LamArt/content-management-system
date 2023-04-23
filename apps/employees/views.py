@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
 from apps.employees.models import (
-    JuniorMedicalStaff,
+    JuniorStaff,
     Administrator,
     Director,
     Employee,
@@ -9,7 +9,7 @@ from apps.employees.models import (
     EmployeeCertificateImage,
 )
 from apps.employees.serializers import (
-    JuniorMedicalStaffSerializer,
+    JuniorStaffSerializer,
     AdministratorSerializer,
     DirectorSerializer,
     EmployeeSerializer,
@@ -19,10 +19,10 @@ from apps.employees.serializers import (
 from apps.seo.utils import PageSEOViewMixin
 
 
-class JuniorMedicalStaffViewSet(viewsets.ModelViewSet):
-    basename = "junior-medical-staff"
-    queryset = JuniorMedicalStaff.objects.all()
-    serializer_class = JuniorMedicalStaffSerializer
+class JuniorStaffViewSet(viewsets.ModelViewSet):
+    basename = "junior-staff"
+    queryset = JuniorStaff.objects.all()
+    serializer_class = JuniorStaffSerializer
     http_method_names = ["get"]
 
 

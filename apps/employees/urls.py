@@ -2,7 +2,7 @@ from django.urls import include, path
 from rest_framework import routers
 
 from apps.employees.views import (
-    JuniorMedicalStaffViewSet,
+    JuniorStaffViewSet,
     AdministratorViewSet,
     DirectorViewSet,
     EmployeeViewSet,
@@ -12,9 +12,9 @@ from apps.employees.views import (
 
 router = routers.DefaultRouter()
 router.register(
-    r"junior-medical-staff",
-    JuniorMedicalStaffViewSet,
-    basename=JuniorMedicalStaffViewSet.basename,
+    r"junior-staff",
+    JuniorStaffViewSet,
+    basename=JuniorStaffViewSet.basename,
 )
 router.register(
     r"administrator", AdministratorViewSet, basename=AdministratorViewSet.basename

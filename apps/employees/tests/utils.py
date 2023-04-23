@@ -1,12 +1,12 @@
-from apps.employees.models import JuniorMedicalStaff, Administrator, Director
+from apps.employees.models import JuniorStaff, Administrator, Director
 
 
-def create_test_junior_medical_staff() -> JuniorMedicalStaff:
-    junior_medical_staff = JuniorMedicalStaff.objects.create(
+def create_test_junior_staff() -> JuniorStaff:
+    junior_staff = JuniorStaff.objects.create(
         full_name="Ксения",
         image_photo="images/2023/02/16/example.jpg",
     )
-    return junior_medical_staff
+    return junior_staff
 
 
 def create_test_administrator() -> Administrator:

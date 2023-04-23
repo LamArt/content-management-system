@@ -3,7 +3,7 @@ from django.contrib import admin
 
 from apps.common.services import reorder_models
 from apps.employees.models import (
-    JuniorMedicalStaff,
+    JuniorStaff,
     Administrator,
     Director,
     EmployeeCertificateImage,
@@ -12,11 +12,12 @@ from apps.employees.models import (
 )
 from apps.images.admin import BaseImageAdmin
 from apps.seo.utils import PageSEOAdminMixin
+from apps.ordering.admin import OrderingModelAdmin
 
 
 # TODO: MAKE IT ABSTRACT
-@admin.register(JuniorMedicalStaff)
-class JuniorMedicalStaffAdmin(SortableAdminMixin, admin.ModelAdmin):
+@admin.register(JuniorStaff)
+class JuniorStaffAdmin(SortableAdminMixin, OrderingModelAdmin):
     list_display = (
         "full_name",
         "image_photo",
@@ -33,14 +34,10 @@ class JuniorMedicalStaffAdmin(SortableAdminMixin, admin.ModelAdmin):
         ),
     )
     search_fields = ("full_name",)
-
-    def delete_queryset(self, *args, **kwargs):
-        super().delete_queryset(*args, **kwargs)
-        reorder_models(JuniorMedicalStaff)
 
 
 @admin.register(Administrator)
-class AdministratorAdmin(SortableAdminMixin, admin.ModelAdmin):
+class AdministratorAdmin(SortableAdminMixin, OrderingModelAdmin):
     list_display = (
         "full_name",
         "image_photo",
@@ -57,14 +54,10 @@ class AdministratorAdmin(SortableAdminMixin, admin.ModelAdmin):
         ),
     )
     search_fields = ("full_name",)
-
-    def delete_queryset(self, *args, **kwargs):
-        super().delete_queryset(*args, **kwargs)
-        reorder_models(JuniorMedicalStaff)
 
 
 @admin.register(Director)
-class DirectorAdmin(SortableAdminMixin, admin.ModelAdmin):
+class DirectorAdmin(SortableAdminMixin, OrderingModelAdmin):
     list_display = (
         "full_name",
         "image_photo",
@@ -81,15 +74,11 @@ class DirectorAdmin(SortableAdminMixin, admin.ModelAdmin):
         ),
     )
     search_fields = ("full_name",)
-
-    def delete_queryset(self, *args, **kwargs):
-        super().delete_queryset(*args, **kwargs)
-        reorder_models(JuniorMedicalStaff)
 
 
 @admin.register(Employee)
 class EmployeeAdmin(
-    PageSEOAdminMixin("full_name"), SortableAdminMixin, admin.ModelAdmin
+    PageSEOAdminMixin("full_name"), SortableAdminMixin, OrderingModelAdmin
 ):
     list_display = (
         "full_name",
@@ -133,10 +122,6 @@ class EmployeeAdmin(
         "certificate_images",
         "services",
     )
-
-    def delete_queryset(self, *args, **kwargs):
-        super().delete_queryset(*args, **kwargs)
-        reorder_models(Employee)
 
 
 @admin.register(EmployeeCertificateImage)
