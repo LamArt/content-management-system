@@ -7,7 +7,7 @@ from apps.company_description.models import (
     PatientInfo,
     ConstituentDocument,
     Partner,
-    ClinicImage,
+    CompanyImage,
     StaffImage,
     InformedPatientConsent,
     MedicalProfessionalProvisions,
@@ -67,9 +67,9 @@ class PartnerSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ClinicImageSerializer(serializers.ModelSerializer):
+class CompanyImageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ClinicImage
+        model = CompanyImage
         fields = "__all__"
 
 

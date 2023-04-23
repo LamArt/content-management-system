@@ -69,7 +69,7 @@ class Contact(SingletonModel):
         ordering = ["id"]  # SOLVE UnorderedObjectListWarning
 
 
-class ClinicImage(BaseOrderingModel):
+class CompanyImage(BaseOrderingModel):
     name = models.CharField(max_length=256, verbose_name="Имя изображения")
     path = models.ImageField(
         upload_to="images/%Y/%m/%d/",

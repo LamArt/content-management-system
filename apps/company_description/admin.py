@@ -6,7 +6,7 @@ from solo.admin import SingletonModelAdmin
 from apps.company_description.models import (
     Contact,
     Link,
-    ClinicImage,
+    CompanyImage,
     StaffImage,
     ClinicDescription,
     PatientInfo,
@@ -91,8 +91,8 @@ class LinkAdmin(SortableAdminMixin, OrderingModelAdmin):
     )
 
 
-@admin.register(ClinicImage)
-class ClinicImageAdmin(SortableAdminMixin, OrderingModelAdmin):
+@admin.register(CompanyImage)
+class CompanyImageAdmin(SortableAdminMixin, OrderingModelAdmin):
     list_display = ("name",)
     fieldsets = (
         (

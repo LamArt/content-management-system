@@ -1,7 +1,7 @@
 from apps.company_description.models import (
     Link,
     Contact,
-    ClinicImage,
+    CompanyImage,
     StaffImage,
     ClinicDescription,
     PatientInfo,
@@ -36,12 +36,12 @@ def create_test_contact() -> Contact:
     return contact
 
 
-def create_test_clinic_image() -> ClinicImage:
-    clinic_image = ClinicImage.objects.create(
-        name="Фотография клиники",
+def create_test_company_image() -> CompanyImage:
+    company_image = CompanyImage.objects.create(
+        name="Фотография компании",
         path="images/2023/02/16/example.jpeg",
     )
-    return clinic_image
+    return company_image
 
 
 def create_test_staff_image() -> StaffImage:

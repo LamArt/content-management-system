@@ -1,8 +1,8 @@
 from django.test import TestCase
 from rest_framework.test import APIClient
 
-from apps.company_description.models import ClinicImage
-from apps.company_description.tests.utils import create_test_clinic_image
+from apps.company_description.models import CompanyImage
+from apps.company_description.tests.utils import create_test_company_image
 
 
 class ClinicImageTests(TestCase):
@@ -13,6 +13,6 @@ class ClinicImageTests(TestCase):
         """
         Ensure we can create clinic image.
         """
-        clinic_image = create_test_clinic_image()
-        self.assertTrue(isinstance(clinic_image, ClinicImage))
-        self.assertEqual(len(ClinicImage.objects.all()), 1)
+        clinic_image = create_test_company_image()
+        self.assertTrue(isinstance(clinic_image, CompanyImage))
+        self.assertEqual(len(CompanyImage.objects.all()), 1)

@@ -10,7 +10,7 @@ from apps.company_description.api.views import (
     InformedPatientConsentViewSet,
     MedicalProfessionalProvisionsViewSet,
     PartnerViewSet,
-    ClinicImageViewSet,
+    CompanyImageViewSet,
     StaffImageViewSet,
 )
 
@@ -42,7 +42,7 @@ router.register(
 )
 router.register(r"partner", PartnerViewSet, basename=PartnerViewSet.basename)
 router.register(
-    r"clinic-image", ClinicImageViewSet, basename=ClinicImageViewSet.basename
+    r"clinic-image", CompanyImageViewSet, basename=CompanyImageViewSet.basename
 )
 router.register(r"staff-image", StaffImageViewSet, basename=StaffImageViewSet.basename)
 

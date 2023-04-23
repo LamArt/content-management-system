@@ -7,7 +7,7 @@ from apps.company_description.models import (
     PatientInfo,
     ConstituentDocument,
     Partner,
-    ClinicImage,
+    CompanyImage,
     StaffImage,
     InformedPatientConsent,
     MedicalProfessionalProvisions,
@@ -19,7 +19,7 @@ from apps.company_description.api.serializers import (
     PatientInfoSerializer,
     ConstituentDocumentSerializer,
     PartnerSerializer,
-    ClinicImageSerializer,
+    CompanyImageSerializer,
     StaffImageSerializer,
     InformedPatientConsentSerializer,
     MedicalProfessionalProvisionsSerializer,
@@ -82,10 +82,10 @@ class PartnerViewSet(viewsets.ModelViewSet):
     http_method_names = ["get"]
 
 
-class ClinicImageViewSet(viewsets.ModelViewSet):
-    basename = "clinic-image"
-    queryset = ClinicImage.objects.all()
-    serializer_class = ClinicImageSerializer
+class CompanyImageViewSet(viewsets.ModelViewSet):
+    basename = "company-image"
+    queryset = CompanyImage.objects.all()
+    serializer_class = CompanyImageSerializer
     http_method_names = ["get"]
 
 
