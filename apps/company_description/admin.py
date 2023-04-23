@@ -109,7 +109,7 @@ class CompanyImageAdmin(SortableAdminMixin, OrderingModelAdmin):
 
 
 @admin.register(StaffImage)
-class StaffImageAdmin(SortableAdminMixin, admin.ModelAdmin):
+class StaffImageAdmin(SortableAdminMixin, OrderingModelAdmin):
     list_display = ("name",)
     fieldsets = (
         (
@@ -123,10 +123,6 @@ class StaffImageAdmin(SortableAdminMixin, admin.ModelAdmin):
         ),
     )
     search_fields = ("name",)
-
-    def delete_queryset(self, *args, **kwargs):
-        super().delete_queryset(*args, **kwargs)
-        reorder_models(StaffImage)
 
 
 @admin.register(ClinicDescription)

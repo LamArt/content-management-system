@@ -84,30 +84,19 @@ class CompanyImage(BaseOrderingModel):
         verbose_name_plural = "Фотографии из клиники"
 
 
-class StaffImage(BaseModel):
+class StaffImage(BaseOrderingModel):
     name = models.CharField(max_length=256, verbose_name="Имя изображения")
     path = models.ImageField(
         upload_to="images/%Y/%m/%d/",
         verbose_name="Фотографии с персоналом",
     )
 
-    ordering = models.PositiveIntegerField(
-        default=0,
-        blank=False,
-        null=False,
-    )
-
-    def delete(self, *args, **kwargs):
-        super().delete(*args, **kwargs)
-        reorder_models(type(self))
-
     def __str__(self):
         return f"{self.name}"
 
-    class Meta:
+    class Meta(BaseOrderingModel.Meta):
         verbose_name = "Фотографии с персоналом"
         verbose_name_plural = "Фотографии с персоналом"
-        ordering = ["ordering"]
 
 
 class ClinicDescription(SingletonModel):
