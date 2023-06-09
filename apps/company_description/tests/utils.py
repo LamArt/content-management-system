@@ -52,7 +52,7 @@ def create_test_staff_image() -> StaffImage:
     return staff_image
 
 
-def create_test_company_description() -> CompanyDescription: # TEEEESTING!!!
+def create_test_company_description() -> CompanyDescription:  # TEEEESTING!!!
     company_description = CompanyDescription.objects.create(
         client_approach_description="Качественно – это значит используются современные гибридные"
         " и на основе нано-технологий материалы, имеющие очень длительный срок эксплуатации, которые "

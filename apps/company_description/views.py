@@ -12,7 +12,7 @@ from apps.company_description.models import (
     InformedPatientConsent,
     MedicalProfessionalProvisions,
 )
-from apps.company_description.api.serializers import (
+from apps.company_description.serializers import (
     LinkSerializer,
     ContactSerializer,
     CompanyDescriptionSerializer,

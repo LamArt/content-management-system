@@ -99,7 +99,7 @@ class StaffImage(BaseOrderingModel):
         verbose_name_plural = "Фотографии с персоналом"
 
 
-class CompanyDescription(SingletonModel): # RENAMING!!!
+class CompanyDescription(SingletonModel):  # RENAMING!!!
     client_approach_description = models.CharField(
         max_length=2048,
         null=True,

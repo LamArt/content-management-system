@@ -9,7 +9,9 @@ from apps.company_description.tests.utils import create_test_company_image
 class CompanyImageDetailApiTests(TestCase):
     def setUp(self):
         self.client = APIClient()
-        self.get_company_image_url = lambda pk: reverse("company-image-detail", args=[pk])
+        self.get_company_image_url = lambda pk: reverse(
+            "company-image-detail", args=[pk]
+        )
 
     def test_company_image_detail_api(self):
         """
