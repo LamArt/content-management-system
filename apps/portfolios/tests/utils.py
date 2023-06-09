@@ -21,7 +21,7 @@ def create_test_portfolio() -> Portfolio:
         "долгих объяснений на пальцах о внешнем виде предлагаемой конструкции. Используя фото вы легко "
         "сможете продемонстрировать варианты установки (лингвальные или вестибулярные) и то, "
         "как реально выглядят разные типы брекетных систем в процессе носки.",
-        patient_result="Приняв решение составить собственное портфолио нужно помнить, что в альбоме представлены "
+        client_result="Приняв решение составить собственное портфолио нужно помнить, что в альбоме представлены "
         "услуги, которые Вы оказываете пациентам, поэтому снимки в нем должны быть четкими и "
         "качественными, а сам он выглядел солидно и респектабельно. Мутные фотографии сложных "
         "клинических случаев не добавят Вам доверия пациента, поэтому не стоит их показывать, "
@@ -98,11 +98,11 @@ def create_test_service(service_category: ServiceCategory, index: int) -> Servic
     return service
 
 
-def create_test_doctor(index) -> Employee:
+def create_test_employee(index) -> Employee:
     doctor = Employee.objects.create(
         full_name=f"Попова Елена Владимировна №{index}",
         image_photo="images/2023/02/16/example.jpg",
-        image_patient_photo="images/2023/02/16/example.jpg",
+        image_client_photo="images/2023/02/16/example.jpg",
         video="https://www.youtube.com/watch?v=b3ootXSAaqE",
         specialization="Главный врач, врач ортопед, гнатолог, терапевт",
         skills="Ортопед, гнатолог, терапевт",

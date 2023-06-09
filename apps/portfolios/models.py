@@ -1,24 +1,24 @@
 from django.db import models
 
-from apps.common.models import BaseModel
+from apps.ordering.models import BaseOrderingModel
 from apps.employees.models import Employee
 from apps.seo.models import PageSEOMixin
 from apps.services.models import Service
 
 
-class Portfolio(PageSEOMixin, BaseModel):
+class Portfolio(PageSEOMixin, BaseOrderingModel):
     task_description = models.TextField(max_length=1024, verbose_name="Задача")
     problem_solve = models.TextField(
         max_length=4096, null=True, blank=True, verbose_name="Решение"
     )
-    patient_result = models.TextField(
-        max_length=4096, null=True, blank=True, verbose_name="Результат для пациента"
+    client_result = models.TextField(
+        max_length=4096, null=True, blank=True, verbose_name="Результат для клиента"
     )
     image_avatar = models.ImageField(
         upload_to="images/%Y/%m/%d/",
         null=True,
         blank=True,
-        verbose_name="Фото пациента",
+        verbose_name="Фото клиента",
     )
     video = models.URLField(null=True, blank=True, verbose_name="Видео")
     completion_date_result = models.CharField(
@@ -27,8 +27,8 @@ class Portfolio(PageSEOMixin, BaseModel):
     services = models.ManyToManyField(
         Service, blank=True, related_name="portfolios", verbose_name="Услуги"
     )
-    doctors = models.ManyToManyField(
-        Employee, blank=True, related_name="portfolios", verbose_name="Врачи"
+    employees = models.ManyToManyField(
+        Employee, blank=True, related_name="portfolios", verbose_name="Сотрудники"
     )
 
     def __str__(self):
@@ -37,4 +37,3 @@ class Portfolio(PageSEOMixin, BaseModel):
     class Meta:
         verbose_name = "Портфолио"
         verbose_name_plural = "Портфолио"
-        ordering = ["task_description"]

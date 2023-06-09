@@ -1,6 +1,6 @@
 from django.db import models
 
-from apps.images.models import BaseImageModel
+from apps.files.models import BaseImageModel
 from apps.seo.models import PageSEOMixin
 from apps.services.models import Service
 from apps.ordering.models import BaseOrderingModel
@@ -23,48 +23,48 @@ class BaseEmployeeModel(BaseOrderingModel):
 
 
 class JuniorStaff(BaseEmployeeModel):
-    class Meta(BaseOrderingModel.Meta):
+    class Meta(BaseEmployeeModel.Meta):
         verbose_name = "Младший персонал"
         verbose_name_plural = "Младший персонал"
 
 
 class Administrator(BaseEmployeeModel):
-    class Meta(BaseOrderingModel.Meta):
+    class Meta(BaseEmployeeModel.Meta):
         verbose_name = "Администратор"
         verbose_name_plural = "Администраторы"
 
 
 class Director(BaseEmployeeModel):
-    class Meta(BaseOrderingModel.Meta):
+    class Meta(BaseEmployeeModel.Meta):
         verbose_name = "Руководитель"
         verbose_name_plural = "Руководители"
 
 
 class EmployeeEducationImage(BaseImageModel):
     class Meta:
-        verbose_name = "Образование врача"
-        verbose_name_plural = "Образование врача"
+        verbose_name = "Образование сотрудника"
+        verbose_name_plural = "Образование сотрудника"
         ordering = ["ordering"]
 
 
 class EmployeeCertificateImage(BaseImageModel):
     class Meta:
-        verbose_name = "Сертификат"
-        verbose_name_plural = "Сертификаты"
+        verbose_name = "Сертификат сотрудника"
+        verbose_name_plural = "Сертификаты сотрудника"
         ordering = ["ordering"]
 
 
 class Employee(PageSEOMixin, BaseEmployeeModel):
-    image_patient_photo = models.ImageField(
+    image_client_photo = models.ImageField(
         upload_to="images/%Y/%m/%d/",
         null=True,
         blank=True,
-        verbose_name="Фотография врача с пациентом",
+        verbose_name="Фотография клиента с результатом работы",
     )
     video = models.URLField(
         null=True,
         blank=True,
-        verbose_name="Видео с представлением врача",
+        verbose_name="Видео с представлением сотрудника",
     )
     specialization = models.TextField(
         max_length=256, null=True, blank=True, verbose_name="Специализация"
@@ -82,23 +82,9 @@ class Employee(PageSEOMixin, BaseEmployeeModel):
         EmployeeCertificateImage, blank=True, verbose_name="Сертификаты"
     )
     services = models.ManyToManyField(
-        Service, blank=True, related_name="doctors", verbose_name="Услуги"
+        Service, blank=True, related_name="employees", verbose_name="Услуги"
     )
 
-    ordering = models.PositiveIntegerField(
-        default=0,
-        blank=False,
-        null=False,
-    )
-
-    def delete(self, *args, **kwargs):
-        super().delete(*args, **kwargs)
-        reorder_models(type(self))
-
-    def __str__(self):
-        return f"{self.full_name}"
-
-    class Meta:
-        verbose_name = "Врач"
-        verbose_name_plural = "Врачи"
-        ordering = ["ordering"]
+    class Meta(BaseEmployeeModel.Meta):
+        verbose_name = "Сотрудник"
+        verbose_name_plural = "Сотрудники"

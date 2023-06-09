@@ -9,13 +9,10 @@ from apps.company_description.models import (
     CompanyImage,
     StaffImage,
     CompanyDescription,
-    PatientInfo,
+    ClientInfo,
     ConstituentDocument,
-    InformedPatientConsent,
-    MedicalProfessionalProvisions,
     Partner,
 )
-from apps.common.services import reorder_models
 from apps.files.admin import BaseFileAdmin
 from apps.ordering.admin import OrderingModelAdmin
 
@@ -150,7 +147,7 @@ class CompanyDescriptionAdmin(SingletonModelAdmin):
     )
 
 
-@admin.register(PatientInfo)
+@admin.register(ClientInfo)
 class PatientInfoAdmin(SingletonModelAdmin):
     list_display = (
         "typical_contract",
@@ -171,16 +168,6 @@ class PatientInfoAdmin(SingletonModelAdmin):
 
 @admin.register(ConstituentDocument)
 class ConstituentDocumentAdmin(BaseFileAdmin):
-    pass
-
-
-@admin.register(InformedPatientConsent)
-class InformedPatientConsentAdmin(BaseFileAdmin):
-    pass
-
-
-@admin.register(MedicalProfessionalProvisions)
-class MedicalProfessionalProvisionsAdmin(BaseFileAdmin):
     pass
 
 

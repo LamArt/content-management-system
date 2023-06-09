@@ -25,7 +25,7 @@ class ServiceFeedbackAdmin(admin.ModelAdmin):
                     "source_name",
                     "source_link",
                     "services",
-                    "doctors",
+                    "employees",
                 )
             },
         ),
@@ -39,9 +39,9 @@ class ServiceFeedbackAdmin(admin.ModelAdmin):
         "name",
         "source_name",
         "services",
-        "doctors",
+        "employees",
     )
     filter_horizontal = (
         "services",
-        "doctors",
+        "employees",
     )

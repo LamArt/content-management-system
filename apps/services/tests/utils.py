@@ -93,11 +93,11 @@ def create_test_service_file() -> ServiceFile:
     return service_file
 
 
-def create_test_doctor(index: int = 1) -> Employee:
+def create_test_employee(index: int = 1) -> Employee:
     doctor = Employee.objects.create(
         full_name=f"Попова Елена Владимировна №{index}",
         image_photo="images/2023/02/16/example.jpg",
-        image_patient_photo="images/2023/02/16/example.jpg",
+        image_client_photo="images/2023/02/16/example.jpg",
         video="https://www.youtube.com/watch?v=b3ootXSAaqE",
         specialization="Главный врач, врач ортопед, гнатолог, терапевт",
         skills="Ортопед, гнатолог, терапевт",
