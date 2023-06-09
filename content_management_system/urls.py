@@ -6,12 +6,6 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-from content_management_system.settings import env
-
-admin.site.site_title = "CMS"
-admin.site.site_header = "CMS | Панель Администратора"
-admin.site.site_url = env.get_value("FRONTEND_SITE_URL")
-
 
 schema_view = get_schema_view(
     openapi.Info(

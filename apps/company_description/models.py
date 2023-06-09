@@ -127,10 +127,10 @@ class ClientInfo(SingletonModel):
     )
 
     def __str__(self):
-        return "Настройки информации для пациентов"
+        return "Настройки информации для клиентов"
 
     class Meta:
-        verbose_name = "Настройка информации для пациентов"
+        verbose_name = "Настройка информации для клиентов"
 
 
 class ConstituentDocument(BaseFileModel):

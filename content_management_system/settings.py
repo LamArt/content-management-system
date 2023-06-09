@@ -45,6 +45,7 @@ THIRD_PARTY_APPS = [
 ]
 
 INSTALLED_APPS = [
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -156,3 +157,16 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env("EMAIL_HOST_USER", default="user@yandex.com")
 DEFAULT_FROM_EMAIL = env("EMAIL_HOST_USER", default="user@yandex.com")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="password")
+
+# Jazzmin settings
+
+JAZZMIN_SETTINGS = {
+    "site_title": "CMS - Панель администратора",
+    "site_header": "Панель управления",
+    "site_brand": "Панель управления",
+    "welcome_sign": "Добро пожаловать в систему управления содержимым веб-сайта",
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "lumen",
+}
