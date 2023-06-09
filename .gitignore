@@ -163,3 +163,4 @@ cython_debug/
 # Drawio
 /doc/.$architecture.drawio.dtmp
 /doc/.$architecture.drawio.bkp
+!/media/
