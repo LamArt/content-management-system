@@ -39,8 +39,4 @@ urlpatterns = [
     path("api/", include("apps.api.urls")),
     path("admin/", admin.site.urls),
     path("tinymce/", include("tinymce.urls")),
-    path(
-        "two_factor/",
-        include(("admin_two_factor.urls", "admin_two_factor"), namespace="two_factor"),
-    ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
