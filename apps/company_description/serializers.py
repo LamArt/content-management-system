@@ -4,13 +4,11 @@ from apps.company_description.models import (
     Contact,
     Link,
     CompanyDescription,
-    PatientInfo,
+    ClientInfo,
     ConstituentDocument,
     Partner,
     CompanyImage,
     StaffImage,
-    InformedPatientConsent,
-    MedicalProfessionalProvisions,
 )
 from apps.files.utils import FileSerializerMixin
 
@@ -35,29 +33,13 @@ class CompanyDescriptionSerializer(serializers.ModelSerializer):
 
 class PatientInfoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PatientInfo
+        model = ClientInfo
         fields = "__all__"
 
 
 class ConstituentDocumentSerializer(FileSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = ConstituentDocument
-        fields = "__all__"
-
-
-class InformedPatientConsentSerializer(
-    FileSerializerMixin, serializers.ModelSerializer
-):
-    class Meta:
-        model = InformedPatientConsent
-        fields = "__all__"
-
-
-class MedicalProfessionalProvisionsSerializer(
-    FileSerializerMixin, serializers.ModelSerializer
-):
-    class Meta:
-        model = MedicalProfessionalProvisions
         fields = "__all__"
 
 

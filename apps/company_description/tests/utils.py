@@ -4,10 +4,8 @@ from apps.company_description.models import (
     CompanyImage,
     StaffImage,
     CompanyDescription,
-    PatientInfo,
+    ClientInfo,
     ConstituentDocument,
-    InformedPatientConsent,
-    MedicalProfessionalProvisions,
     Partner,
 )
 
@@ -93,8 +91,8 @@ def create_test_company_description() -> CompanyDescription:  # TEEEESTING!!!
     return company_description
 
 
-def create_test_patient_info() -> PatientInfo:
-    patient_info = PatientInfo.objects.create(
+def create_test_patient_info() -> ClientInfo:
+    patient_info = ClientInfo.objects.create(
         typical_contract="files/2023/02/16/example.pdf",
         personal_data_policy=100
         * "<h5>2. Основные понятия, используемые в&nbsp;Политике</h5>",
@@ -107,20 +105,6 @@ def create_test_constituent_document() -> ConstituentDocument:
         name="Мой сертификат.pdf", path="files/2023/02/16/example.pdf"
     )
     return constituent_document
-
-
-def create_test_informed_patient_consent() -> InformedPatientConsent:
-    informed_patient_consent = InformedPatientConsent.objects.create(
-        name="Мой сертификат.pdf", path="files/2023/02/16/example.pdf"
-    )
-    return informed_patient_consent
-
-
-def create_test_medical_professional_provisions() -> MedicalProfessionalProvisions:
-    medical_professional_provisions = MedicalProfessionalProvisions.objects.create(
-        name="Мой сертификат.pdf", path="files/2023/02/16/example.pdf"
-    )
-    return medical_professional_provisions
 
 
 def create_test_partner() -> Partner:

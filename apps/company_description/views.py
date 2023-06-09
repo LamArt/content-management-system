@@ -4,13 +4,11 @@ from apps.company_description.models import (
     Link,
     Contact,
     CompanyDescription,
-    PatientInfo,
+    ClientInfo,
     ConstituentDocument,
     Partner,
     CompanyImage,
     StaffImage,
-    InformedPatientConsent,
-    MedicalProfessionalProvisions,
 )
 from apps.company_description.serializers import (
     LinkSerializer,
@@ -21,8 +19,6 @@ from apps.company_description.serializers import (
     PartnerSerializer,
     CompanyImageSerializer,
     StaffImageSerializer,
-    InformedPatientConsentSerializer,
-    MedicalProfessionalProvisionsSerializer,
 )
 
 
@@ -49,7 +45,7 @@ class ClinicDescriptionViewSet(viewsets.ModelViewSet):
 
 class PatientInfoViewSet(viewsets.ModelViewSet):
     basename = "patient-info"
-    queryset = PatientInfo.objects.all()
+    queryset = ClientInfo.objects.all()
     serializer_class = PatientInfoSerializer
     http_method_names = ["get"]
 
@@ -58,20 +54,6 @@ class ConstituentDocumentViewSet(viewsets.ModelViewSet):
     basename = "constituent-document"
     queryset = ConstituentDocument.objects.all()
     serializer_class = ConstituentDocumentSerializer
-    http_method_names = ["get"]
-
-
-class InformedPatientConsentViewSet(viewsets.ModelViewSet):
-    basename = "informed-patient-consent"
-    queryset = InformedPatientConsent.objects.all()
-    serializer_class = InformedPatientConsentSerializer
-    http_method_names = ["get"]
-
-
-class MedicalProfessionalProvisionsViewSet(viewsets.ModelViewSet):
-    basename = "medical-professional-provisions"
-    queryset = MedicalProfessionalProvisions.objects.all()
-    serializer_class = MedicalProfessionalProvisionsSerializer
     http_method_names = ["get"]
 
 

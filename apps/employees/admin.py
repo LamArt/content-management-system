@@ -10,7 +10,7 @@ from apps.employees.models import (
     EmployeeEducationImage,
     Employee,
 )
-from apps.images.admin import BaseImageAdmin
+from apps.files.admin import BaseImageAdmin
 from apps.seo.utils import PageSEOAdminMixin
 from apps.ordering.admin import OrderingModelAdmin
 
@@ -83,7 +83,7 @@ class EmployeeAdmin(
     list_display = (
         "full_name",
         "image_photo",
-        "image_patient_photo",
+        "image_client_photo",
         "video",
         "specialization",
         "skills",
@@ -96,7 +96,7 @@ class EmployeeAdmin(
                 "fields": (
                     "full_name",
                     "image_photo",
-                    "image_patient_photo",
+                    "image_client_photo",
                     "video",
                     "specialization",
                     "skills",

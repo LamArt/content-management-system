@@ -9,7 +9,7 @@ class PortfolioAdmin(PageSEOAdminMixin("task_description"), admin.ModelAdmin):
     list_display = (
         "task_description",
         "problem_solve",
-        "patient_result",
+        "client_result",
         "image_avatar",
         "video",
         "completion_date_result",
@@ -21,12 +21,12 @@ class PortfolioAdmin(PageSEOAdminMixin("task_description"), admin.ModelAdmin):
                 "fields": (
                     "task_description",
                     "problem_solve",
-                    "patient_result",
+                    "client_result",
                     "image_avatar",
                     "video",
                     "completion_date_result",
                     "services",
-                    "doctors",
+                    "employees",
                 )
             },
         ),
@@ -34,10 +34,10 @@ class PortfolioAdmin(PageSEOAdminMixin("task_description"), admin.ModelAdmin):
     search_fields = (
         "task_description",
         "problem_solve",
-        "patient_result",
+        "client_result",
         "completion_date_result",
     )
     filter_horizontal = (
         "services",
-        "doctors",
+        "employees",
     )

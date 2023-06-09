@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "content-management-system"
+version = "0.1.0"
+description = ""
+authors = ["hecronk <damiraminov1@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "content_management_system"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.2.2"
+djangorestframework = "^3.14.0"
+django-environ = "^0.10.0"
+psycopg2 = "^2.9.6"
+pillow = "^9.5.0"
+drf-yasg = "^1.21.5"
+django-cors-headers = "^4.0.0"
+django-tinymce = "^3.6.1"
+django-admin-sortable2 = "^2.1.8"
+django-solo = "^2.1.0"
+django-phonenumber-field = "^7.1.0"
+phonenumbers = "^8.13.13"
+filetype = "^1.2.0"
+pytils = "^0.4.1"
+django-admin-two-factor = "^0.1.1"
+
+[tool.poetry.group.development]
+optional = true
+
+[tool.poetry.group.development.dependencies]
+pytest = "^7.3.1"
+pytest-django = "^4.5.2"
+
+
+[tool.poetry.group.production]
+optional = true
+
+[tool.poetry.group.production.dependencies]
+gunicorn = "^20.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

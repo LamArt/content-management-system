@@ -4,7 +4,7 @@ from solo.models import SingletonModel
 
 from apps.common.models import BaseModel
 from apps.ordering.models import BaseOrderingModel
-from apps.files.models import BaseFileModel
+from apps.files.models import BaseFileModel, BaseImageModel
 
 
 class Link(BaseOrderingModel):
@@ -66,40 +66,21 @@ class Contact(SingletonModel):
 
     class Meta:
         verbose_name = "Настройки контактов"
-        ordering = ["id"]  # SOLVE UnorderedObjectListWarning
 
 
-class CompanyImage(BaseOrderingModel):
-    name = models.CharField(max_length=256, verbose_name="Имя изображения")
-    path = models.ImageField(
-        upload_to="images/%Y/%m/%d/",
-        verbose_name="Фотографии из клиники",
-    )
-
-    def __str__(self):
-        return f"{self.name}"
-
-    class Meta(BaseOrderingModel.Meta):
-        verbose_name = "Фотография из клиники"
-        verbose_name_plural = "Фотографии из клиники"
+class CompanyImage(BaseImageModel):
+    class Meta(BaseImageModel.Meta):
+        verbose_name = "Фотография из офиса компании"
+        verbose_name_plural = "Фотографии из офиса компании"
 
 
-class StaffImage(BaseOrderingModel):
-    name = models.CharField(max_length=256, verbose_name="Имя изображения")
-    path = models.ImageField(
-        upload_to="images/%Y/%m/%d/",
-        verbose_name="Фотографии с персоналом",
-    )
-
-    def __str__(self):
-        return f"{self.name}"
-
-    class Meta(BaseOrderingModel.Meta):
+class StaffImage(BaseImageModel):
+    class Meta(BaseImageModel.Meta):
         verbose_name = "Фотографии с персоналом"
         verbose_name_plural = "Фотографии с персоналом"
 
 
-class CompanyDescription(SingletonModel):  # RENAMING!!!
+class CompanyDescription(SingletonModel):
     client_approach_description = models.CharField(
         max_length=2048,
         null=True,
@@ -121,21 +102,20 @@ class CompanyDescription(SingletonModel):  # RENAMING!!!
         upload_to="images/%Y/%m/%d/",
         null=True,
         blank=True,
-        verbose_name="Фото главного врача в клинике",
+        verbose_name="Фото директора в компании",
     )
     company_history = models.TextField(
         max_length=2048, null=True, blank=True, verbose_name="История компании"
     )
 
     def __str__(self):
-        return "Настройки описания клиники"
+        return "Настройки описания компании"
 
     class Meta:
         verbose_name = "Настройки описания клиники"
-        ordering = ["id"]  # SOLVE UnorderedObjectListWarning
 
 
-class PatientInfo(SingletonModel):
+class ClientInfo(SingletonModel):
     typical_contract = models.FileField(
         upload_to="files/%Y/%m/%d/",
         blank=True,
@@ -151,27 +131,12 @@ class PatientInfo(SingletonModel):
 
     class Meta:
         verbose_name = "Настройка информации для пациентов"
-        ordering = ["id"]  # SOLVE UnorderedObjectListWarning
 
 
 class ConstituentDocument(BaseFileModel):
     class Meta:
         verbose_name = "Учредительный документ"
         verbose_name_plural = "Учредительные документы"
-        ordering = ["name"]
-
-
-class InformedPatientConsent(BaseFileModel):
-    class Meta:
-        verbose_name = "Информированное согласие для пациентов"
-        verbose_name_plural = "Информированное согласие для пациентов"
-        ordering = ["name"]
-
-
-class MedicalProfessionalProvisions(BaseFileModel):
-    class Meta:
-        verbose_name = "Положение для медицинских работников"
-        verbose_name_plural = "Положения для медицинских работников"
         ordering = ["name"]
 
 

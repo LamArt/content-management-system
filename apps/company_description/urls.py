@@ -7,8 +7,6 @@ from apps.company_description.views import (
     ClinicDescriptionViewSet,
     PatientInfoViewSet,
     ConstituentDocumentViewSet,
-    InformedPatientConsentViewSet,
-    MedicalProfessionalProvisionsViewSet,
     PartnerViewSet,
     CompanyImageViewSet,
     StaffImageViewSet,
@@ -29,16 +27,6 @@ router.register(
     r"constituent-document",
     ConstituentDocumentViewSet,
     basename=ConstituentDocumentViewSet.basename,
-)
-router.register(
-    r"informed-patient-consent",
-    InformedPatientConsentViewSet,
-    basename=InformedPatientConsentViewSet.basename,
-)
-router.register(
-    r"medical-professional-provisions",
-    MedicalProfessionalProvisionsViewSet,
-    basename=MedicalProfessionalProvisionsViewSet.basename,
 )
 router.register(r"partner", PartnerViewSet, basename=PartnerViewSet.basename)
 router.register(

@@ -4,7 +4,7 @@ from rest_framework.test import APIClient
 from apps.portfolios.models import Portfolio
 from apps.portfolios.tests.utils import (
     create_test_portfolio,
-    create_test_doctor,
+    create_test_employee,
     create_test_service_category,
     create_test_service,
 )
@@ -18,7 +18,7 @@ class PortfolioTests(TestCase):
             create_test_service(service_category=self.service_category, index=i)
             for i in range(5)
         ]
-        self.doctors = [create_test_doctor(i) for i in range(6)]
+        self.employees = [create_test_employee(i) for i in range(6)]
 
     def test_portfolio_create(self):
         """
@@ -28,8 +28,8 @@ class PortfolioTests(TestCase):
         self.assertTrue(isinstance(portfolio, Portfolio))
         self.assertEqual(len(Portfolio.objects.all()), 1)
         portfolio.services.set(self.services)
-        portfolio.doctors.set(self.doctors)
+        portfolio.employees.set(self.employees)
         self.assertEqual(tuple(portfolio.services.all()), tuple(self.services))
         self.assertEqual(portfolio.services.count(), len(self.services))
-        self.assertEqual(tuple(portfolio.doctors.all()), tuple(self.doctors))
-        self.assertEqual(portfolio.doctors.count(), len(self.doctors))
+        self.assertEqual(tuple(portfolio.employees.all()), tuple(self.employees))
+        self.assertEqual(portfolio.employees.count(), len(self.employees))
