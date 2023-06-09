@@ -9,88 +9,244 @@ import tinymce.models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='FeedbackForm',
+            name="FeedbackForm",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('name', models.CharField(max_length=256)),
-                ('notification_success_template', models.TextField(max_length=1024)),
-                ('notification_failure_template', models.TextField(max_length=1024)),
-                ('notification_manager_email_template', tinymce.models.HTMLField()),
-                ('confirmation_email', models.BooleanField(default=False)),
-                ('confirmation_email_template', tinymce.models.HTMLField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("notification_success_template", models.TextField(max_length=1024)),
+                ("notification_failure_template", models.TextField(max_length=1024)),
+                ("notification_manager_email_template", tinymce.models.HTMLField()),
+                ("confirmation_email", models.BooleanField(default=False)),
+                ("confirmation_email_template", tinymce.models.HTMLField()),
             ],
             options={
-                'verbose_name': 'Форма обратной связи',
-                'verbose_name_plural': 'Формы обратной связи',
-                'ordering': ['id'],
+                "verbose_name": "Форма обратной связи",
+                "verbose_name_plural": "Формы обратной связи",
+                "ordering": ["id"],
             },
         ),
         migrations.CreateModel(
-            name='FormEmail',
+            name="FormEmail",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('email_address', models.EmailField(max_length=254, verbose_name='Адрес электронной почты')),
-                ('feedback_forms', models.ManyToManyField(blank=True, related_name='emails', to='feedback_forms.feedbackform', verbose_name='Формы')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                (
+                    "email_address",
+                    models.EmailField(
+                        max_length=254, verbose_name="Адрес электронной почты"
+                    ),
+                ),
+                (
+                    "feedback_forms",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="emails",
+                        to="feedback_forms.feedbackform",
+                        verbose_name="Формы",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Почта для форм',
-                'verbose_name_plural': 'Почты для форм',
+                "verbose_name": "Почта для форм",
+                "verbose_name_plural": "Почты для форм",
             },
         ),
         migrations.CreateModel(
-            name='Field',
+            name="Field",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('name', models.CharField(max_length=64)),
-                ('marker_template', models.CharField(max_length=64)),
-                ('required_field', models.BooleanField()),
-                ('type', models.CharField(choices=[('String', 'string'), ('Phone', 'phone'), ('Email', 'email'), ('File', 'file'), ('Hidden', 'hidden')], max_length=6, verbose_name=apps.feedback_forms.models.Field.FieldType)),
-                ('feedback_forms', models.ManyToManyField(related_name='fields', to='feedback_forms.feedbackform')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("name", models.CharField(max_length=64)),
+                ("marker_template", models.CharField(max_length=64)),
+                ("required_field", models.BooleanField()),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[
+                            ("String", "string"),
+                            ("Phone", "phone"),
+                            ("Email", "email"),
+                            ("File", "file"),
+                            ("Hidden", "hidden"),
+                        ],
+                        max_length=6,
+                        verbose_name=apps.feedback_forms.models.Field.FieldType,
+                    ),
+                ),
+                (
+                    "feedback_forms",
+                    models.ManyToManyField(
+                        related_name="fields", to="feedback_forms.feedbackform"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Поле',
-                'verbose_name_plural': 'Поля',
-                'ordering': ['id'],
+                "verbose_name": "Поле",
+                "verbose_name_plural": "Поля",
+                "ordering": ["id"],
             },
         ),
         migrations.CreateModel(
-            name='FeedbackFormLog',
+            name="FeedbackFormLog",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('datetime', models.DateTimeField(auto_created=True, verbose_name='Дата и время заполнения')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ip_address', models.GenericIPAddressField(verbose_name='IP адрес пользователя')),
-                ('url', models.URLField(verbose_name='URL страницы')),
-                ('url_source', models.URLField(verbose_name='URL источника посещения')),
-                ('name', models.TextField(max_length=256, validators=[django.core.validators.MaxLengthValidator(256)], verbose_name='Имя')),
-                ('phone_number', phonenumber_field.modelfields.PhoneNumberField(max_length=17, region=None, verbose_name='Телефон')),
-                ('email_address', models.EmailField(max_length=254, verbose_name='Email')),
-                ('message', models.TextField(max_length=2048, validators=[django.core.validators.MaxLengthValidator(2048)], verbose_name='Сообщение')),
-                ('convenient_time', models.TimeField(verbose_name='Удобное время для связи')),
-                ('service_name', models.CharField(blank=True, max_length=256, null=True, verbose_name='Название услуги, из которой отправили заявку')),
-                ('page_name', models.CharField(blank=True, max_length=256, null=True, verbose_name='Название страницы, из которой отправили заявку')),
-                ('doctor_name', models.CharField(blank=True, max_length=256, null=True, verbose_name='ФИО доктора')),
-                ('feedback_form', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='feedback_forms.feedbackform')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "datetime",
+                    models.DateTimeField(
+                        auto_created=True, verbose_name="Дата и время заполнения"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                (
+                    "ip_address",
+                    models.GenericIPAddressField(verbose_name="IP адрес пользователя"),
+                ),
+                ("url", models.URLField(verbose_name="URL страницы")),
+                ("url_source", models.URLField(verbose_name="URL источника посещения")),
+                (
+                    "name",
+                    models.TextField(
+                        max_length=256,
+                        validators=[django.core.validators.MaxLengthValidator(256)],
+                        verbose_name="Имя",
+                    ),
+                ),
+                (
+                    "phone_number",
+                    phonenumber_field.modelfields.PhoneNumberField(
+                        max_length=17, region=None, verbose_name="Телефон"
+                    ),
+                ),
+                (
+                    "email_address",
+                    models.EmailField(max_length=254, verbose_name="Email"),
+                ),
+                (
+                    "message",
+                    models.TextField(
+                        max_length=2048,
+                        validators=[django.core.validators.MaxLengthValidator(2048)],
+                        verbose_name="Сообщение",
+                    ),
+                ),
+                (
+                    "convenient_time",
+                    models.TimeField(verbose_name="Удобное время для связи"),
+                ),
+                (
+                    "service_name",
+                    models.CharField(
+                        blank=True,
+                        max_length=256,
+                        null=True,
+                        verbose_name="Название услуги, из которой отправили заявку",
+                    ),
+                ),
+                (
+                    "page_name",
+                    models.CharField(
+                        blank=True,
+                        max_length=256,
+                        null=True,
+                        verbose_name="Название страницы, из которой отправили заявку",
+                    ),
+                ),
+                (
+                    "doctor_name",
+                    models.CharField(
+                        blank=True,
+                        max_length=256,
+                        null=True,
+                        verbose_name="ФИО доктора",
+                    ),
+                ),
+                (
+                    "feedback_form",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        to="feedback_forms.feedbackform",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Запись в журнале',
-                'verbose_name_plural': 'Записи в журнале',
-                'ordering': ['-datetime'],
+                "verbose_name": "Запись в журнале",
+                "verbose_name_plural": "Записи в журнале",
+                "ordering": ["-datetime"],
             },
         ),
     ]

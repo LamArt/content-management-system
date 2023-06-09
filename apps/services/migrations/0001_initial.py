@@ -8,91 +8,316 @@ import tinymce.models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ServiceCategory',
+            name="ServiceCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('name', models.CharField(max_length=256, verbose_name='Название')),
-                ('logo', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Логотип')),
-                ('short_description', tinymce.models.HTMLField(blank=True, default='', null=True, verbose_name='Краткое описание')),
-                ('long_description', tinymce.models.HTMLField(blank=True, default='', null=True, verbose_name='Детальное описание')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("name", models.CharField(max_length=256, verbose_name="Название")),
+                (
+                    "logo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Логотип",
+                    ),
+                ),
+                (
+                    "short_description",
+                    tinymce.models.HTMLField(
+                        blank=True,
+                        default="",
+                        null=True,
+                        verbose_name="Краткое описание",
+                    ),
+                ),
+                (
+                    "long_description",
+                    tinymce.models.HTMLField(
+                        blank=True,
+                        default="",
+                        null=True,
+                        verbose_name="Детальное описание",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Направление деятельности',
-                'verbose_name_plural': 'Направления деятельности',
-                'ordering': ['name'],
+                "verbose_name": "Направление деятельности",
+                "verbose_name_plural": "Направления деятельности",
+                "ordering": ["name"],
             },
         ),
         migrations.CreateModel(
-            name='ServiceFile',
+            name="ServiceFile",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('name', models.CharField(max_length=150, verbose_name='Имя файла')),
-                ('path', models.FileField(upload_to='files/%Y/%m/%d/', verbose_name='Файл')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("name", models.CharField(max_length=150, verbose_name="Имя файла")),
+                (
+                    "path",
+                    models.FileField(upload_to="files/%Y/%m/%d/", verbose_name="Файл"),
+                ),
             ],
             options={
-                'verbose_name': 'Файл',
-                'verbose_name_plural': 'Файлы',
-                'ordering': ['name'],
+                "verbose_name": "Файл",
+                "verbose_name_plural": "Файлы",
+                "ordering": ["name"],
             },
         ),
         migrations.CreateModel(
-            name='ServicePatientNeedsCategory',
+            name="ServicePatientNeedsCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('name', models.CharField(max_length=256, verbose_name='Название')),
-                ('logo', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Пиктограмма')),
-                ('short_description', tinymce.models.HTMLField(blank=True, default='', null=True, verbose_name='Краткое описание')),
-                ('long_description', tinymce.models.HTMLField(blank=True, default='', null=True, verbose_name='Детальное описание')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("name", models.CharField(max_length=256, verbose_name="Название")),
+                (
+                    "logo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Пиктограмма",
+                    ),
+                ),
+                (
+                    "short_description",
+                    tinymce.models.HTMLField(
+                        blank=True,
+                        default="",
+                        null=True,
+                        verbose_name="Краткое описание",
+                    ),
+                ),
+                (
+                    "long_description",
+                    tinymce.models.HTMLField(
+                        blank=True,
+                        default="",
+                        null=True,
+                        verbose_name="Детальное описание",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Потребность пациента',
-                'verbose_name_plural': 'Потребности пациентов',
-                'ordering': ['name'],
+                "verbose_name": "Потребность пациента",
+                "verbose_name_plural": "Потребности пациентов",
+                "ordering": ["name"],
             },
         ),
         migrations.CreateModel(
-            name='Service',
+            name="Service",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('slug', models.SlugField(allow_unicode=True, max_length=256, unique=True, verbose_name='URL')),
-                ('meta_title', models.TextField(blank=True, default='', max_length=256, null=True, verbose_name='Заголовок')),
-                ('meta_keywords', models.TextField(blank=True, default='', max_length=256, null=True, verbose_name='Ключевые слова')),
-                ('meta_description', models.TextField(blank=True, default='', max_length=256, null=True, verbose_name='Описание')),
-                ('name', models.CharField(max_length=256, verbose_name='Название')),
-                ('code', models.CharField(blank=True, max_length=128, null=True, verbose_name='Код услуги')),
-                ('title', models.CharField(blank=True, max_length=128, null=True, verbose_name='Заголовок')),
-                ('image', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Иллюстрирующее изображение')),
-                ('price', models.DecimalField(blank=True, decimal_places=2, max_digits=15, null=True, validators=[django.core.validators.MinValueValidator(Decimal('0.01'))], verbose_name='Цена')),
-                ('published', models.BooleanField(verbose_name='Опубликовано')),
-                ('price_published', models.BooleanField(verbose_name='Публиковать в прайсе')),
-                ('short_description', tinymce.models.HTMLField(blank=True, default='', null=True, verbose_name='Краткое описание')),
-                ('long_description', tinymce.models.HTMLField(blank=True, default='', null=True, verbose_name='Детальное описание')),
-                ('video', models.URLField(blank=True, null=True, verbose_name='Видео с представлением услуги')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('files', models.ManyToManyField(blank=True, to='services.servicefile', verbose_name='Прикрепленные файлы')),
-                ('service_category', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='services.servicecategory', verbose_name='Категория')),
-                ('service_patient_needs_categories', models.ManyToManyField(blank=True, to='services.servicepatientneedscategory', verbose_name='Категории потребностей')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                (
+                    "slug",
+                    models.SlugField(
+                        allow_unicode=True,
+                        max_length=256,
+                        unique=True,
+                        verbose_name="URL",
+                    ),
+                ),
+                (
+                    "meta_title",
+                    models.TextField(
+                        blank=True,
+                        default="",
+                        max_length=256,
+                        null=True,
+                        verbose_name="Заголовок",
+                    ),
+                ),
+                (
+                    "meta_keywords",
+                    models.TextField(
+                        blank=True,
+                        default="",
+                        max_length=256,
+                        null=True,
+                        verbose_name="Ключевые слова",
+                    ),
+                ),
+                (
+                    "meta_description",
+                    models.TextField(
+                        blank=True,
+                        default="",
+                        max_length=256,
+                        null=True,
+                        verbose_name="Описание",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256, verbose_name="Название")),
+                (
+                    "code",
+                    models.CharField(
+                        blank=True, max_length=128, null=True, verbose_name="Код услуги"
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        blank=True, max_length=128, null=True, verbose_name="Заголовок"
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Иллюстрирующее изображение",
+                    ),
+                ),
+                (
+                    "price",
+                    models.DecimalField(
+                        blank=True,
+                        decimal_places=2,
+                        max_digits=15,
+                        null=True,
+                        validators=[
+                            django.core.validators.MinValueValidator(Decimal("0.01"))
+                        ],
+                        verbose_name="Цена",
+                    ),
+                ),
+                ("published", models.BooleanField(verbose_name="Опубликовано")),
+                (
+                    "price_published",
+                    models.BooleanField(verbose_name="Публиковать в прайсе"),
+                ),
+                (
+                    "short_description",
+                    tinymce.models.HTMLField(
+                        blank=True,
+                        default="",
+                        null=True,
+                        verbose_name="Краткое описание",
+                    ),
+                ),
+                (
+                    "long_description",
+                    tinymce.models.HTMLField(
+                        blank=True,
+                        default="",
+                        null=True,
+                        verbose_name="Детальное описание",
+                    ),
+                ),
+                (
+                    "video",
+                    models.URLField(
+                        blank=True,
+                        null=True,
+                        verbose_name="Видео с представлением услуги",
+                    ),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                (
+                    "files",
+                    models.ManyToManyField(
+                        blank=True,
+                        to="services.servicefile",
+                        verbose_name="Прикрепленные файлы",
+                    ),
+                ),
+                (
+                    "service_category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="services.servicecategory",
+                        verbose_name="Категория",
+                    ),
+                ),
+                (
+                    "service_patient_needs_categories",
+                    models.ManyToManyField(
+                        blank=True,
+                        to="services.servicepatientneedscategory",
+                        verbose_name="Категории потребностей",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Услуга',
-                'verbose_name_plural': 'Услуги',
-                'ordering': ['ordering'],
+                "verbose_name": "Услуга",
+                "verbose_name_plural": "Услуги",
+                "ordering": ["ordering"],
             },
         ),
     ]

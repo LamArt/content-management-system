@@ -5,140 +5,419 @@ import tinymce.models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='ClientInfo',
+            name="ClientInfo",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('typical_contract', models.FileField(blank=True, null=True, upload_to='files/%Y/%m/%d/', verbose_name='Типичный договор')),
-                ('personal_data_policy', tinymce.models.HTMLField(blank=True, null=True, verbose_name='Политика обработки персональных данных')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "typical_contract",
+                    models.FileField(
+                        blank=True,
+                        null=True,
+                        upload_to="files/%Y/%m/%d/",
+                        verbose_name="Типичный договор",
+                    ),
+                ),
+                (
+                    "personal_data_policy",
+                    tinymce.models.HTMLField(
+                        blank=True,
+                        null=True,
+                        verbose_name="Политика обработки персональных данных",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Настройка информации для пациентов',
+                "verbose_name": "Настройка информации для пациентов",
             },
         ),
         migrations.CreateModel(
-            name='CompanyDescription',
+            name="CompanyDescription",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('client_approach_description', models.CharField(blank=True, max_length=2048, null=True, verbose_name='Описание подхода к клиенту')),
-                ('video', models.URLField(blank=True, null=True, verbose_name='Видеоролик с выступлением директора компании')),
-                ('company_main_director_description', models.TextField(blank=True, max_length=2048, null=True, verbose_name='Описание директора компании')),
-                ('image', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Фото директора в компании')),
-                ('company_history', models.TextField(blank=True, max_length=2048, null=True, verbose_name='История компании')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "client_approach_description",
+                    models.CharField(
+                        blank=True,
+                        max_length=2048,
+                        null=True,
+                        verbose_name="Описание подхода к клиенту",
+                    ),
+                ),
+                (
+                    "video",
+                    models.URLField(
+                        blank=True,
+                        null=True,
+                        verbose_name="Видеоролик с выступлением директора компании",
+                    ),
+                ),
+                (
+                    "company_main_director_description",
+                    models.TextField(
+                        blank=True,
+                        max_length=2048,
+                        null=True,
+                        verbose_name="Описание директора компании",
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Фото директора в компании",
+                    ),
+                ),
+                (
+                    "company_history",
+                    models.TextField(
+                        blank=True,
+                        max_length=2048,
+                        null=True,
+                        verbose_name="История компании",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Настройки описания клиники',
+                "verbose_name": "Настройки описания клиники",
             },
         ),
         migrations.CreateModel(
-            name='CompanyImage',
+            name="CompanyImage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('name', models.CharField(max_length=256, verbose_name='Имя изображения')),
-                ('path', models.ImageField(upload_to='images/%Y/%m/%d/', verbose_name='Изображение')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                (
+                    "name",
+                    models.CharField(max_length=256, verbose_name="Имя изображения"),
+                ),
+                (
+                    "path",
+                    models.ImageField(
+                        upload_to="images/%Y/%m/%d/", verbose_name="Изображение"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Фотография из офиса компании',
-                'verbose_name_plural': 'Фотографии из офиса компании',
-                'ordering': ['ordering'],
-                'abstract': False,
+                "verbose_name": "Фотография из офиса компании",
+                "verbose_name_plural": "Фотографии из офиса компании",
+                "ordering": ["ordering"],
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='ConstituentDocument',
+            name="ConstituentDocument",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('name', models.CharField(max_length=150, verbose_name='Имя файла')),
-                ('path', models.FileField(upload_to='files/%Y/%m/%d/', verbose_name='Файл')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("name", models.CharField(max_length=150, verbose_name="Имя файла")),
+                (
+                    "path",
+                    models.FileField(upload_to="files/%Y/%m/%d/", verbose_name="Файл"),
+                ),
             ],
             options={
-                'verbose_name': 'Учредительный документ',
-                'verbose_name_plural': 'Учредительные документы',
-                'ordering': ['name'],
+                "verbose_name": "Учредительный документ",
+                "verbose_name_plural": "Учредительные документы",
+                "ordering": ["name"],
             },
         ),
         migrations.CreateModel(
-            name='Link',
+            name="Link",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('link_address', models.URLField(verbose_name='Ссылка')),
-                ('link_for_messenger', models.BooleanField(default=False, verbose_name='Мессенджер')),
-                ('link_for_social_network', models.BooleanField(default=False, verbose_name='Социальная сеть')),
-                ('logo', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Логотип')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                ("link_address", models.URLField(verbose_name="Ссылка")),
+                (
+                    "link_for_messenger",
+                    models.BooleanField(default=False, verbose_name="Мессенджер"),
+                ),
+                (
+                    "link_for_social_network",
+                    models.BooleanField(default=False, verbose_name="Социальная сеть"),
+                ),
+                (
+                    "logo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Логотип",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Ссылка',
-                'verbose_name_plural': 'Ссылки',
-                'ordering': ['ordering'],
-                'abstract': False,
+                "verbose_name": "Ссылка",
+                "verbose_name_plural": "Ссылки",
+                "ordering": ["ordering"],
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Partner',
+            name="Partner",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('name', models.CharField(max_length=256, verbose_name='Название')),
-                ('logo', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Иллюстрирующее изображение')),
-                ('description', models.TextField(blank=True, null=True, verbose_name='Описание')),
-                ('phone_number_cell', models.CharField(blank=True, max_length=64, null=True, verbose_name='Мобильный телефон')),
-                ('link_address', models.URLField(blank=True, null=True, verbose_name='Сайт партнера')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("name", models.CharField(max_length=256, verbose_name="Название")),
+                (
+                    "logo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Иллюстрирующее изображение",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(blank=True, null=True, verbose_name="Описание"),
+                ),
+                (
+                    "phone_number_cell",
+                    models.CharField(
+                        blank=True,
+                        max_length=64,
+                        null=True,
+                        verbose_name="Мобильный телефон",
+                    ),
+                ),
+                (
+                    "link_address",
+                    models.URLField(
+                        blank=True, null=True, verbose_name="Сайт партнера"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Партнер',
-                'verbose_name_plural': 'Партнеры',
-                'ordering': ['name'],
+                "verbose_name": "Партнер",
+                "verbose_name_plural": "Партнеры",
+                "ordering": ["name"],
             },
         ),
         migrations.CreateModel(
-            name='StaffImage',
+            name="StaffImage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('name', models.CharField(max_length=256, verbose_name='Имя изображения')),
-                ('path', models.ImageField(upload_to='images/%Y/%m/%d/', verbose_name='Изображение')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                (
+                    "name",
+                    models.CharField(max_length=256, verbose_name="Имя изображения"),
+                ),
+                (
+                    "path",
+                    models.ImageField(
+                        upload_to="images/%Y/%m/%d/", verbose_name="Изображение"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Фотографии с персоналом',
-                'verbose_name_plural': 'Фотографии с персоналом',
-                'ordering': ['ordering'],
-                'abstract': False,
+                "verbose_name": "Фотографии с персоналом",
+                "verbose_name_plural": "Фотографии с персоналом",
+                "ordering": ["ordering"],
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Contact',
+            name="Contact",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('address', models.TextField(blank=True, max_length=256, null=True, verbose_name='Адрес')),
-                ('work_schedule', models.TextField(blank=True, max_length=256, null=True, verbose_name='График работы')),
-                ('phone_number_cell', models.CharField(blank=True, max_length=64, null=True, verbose_name='Мобильный телефон')),
-                ('phone_number_home', models.CharField(blank=True, max_length=64, null=True, verbose_name='Городской телефон')),
-                ('email_address', models.EmailField(blank=True, max_length=254, null=True, verbose_name='Email')),
-                ('entance_diagram', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Схема прохода в здание')),
-                ('parking_place', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Место для парковки')),
-                ('yandex_map', models.TextField(blank=True, max_length=1024, null=True, verbose_name='Карта на базе сервиса Яндекс.Карты')),
-                ('links', models.ManyToManyField(blank=True, related_name='contacts', to='company_description.link', verbose_name='Ссылки')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "address",
+                    models.TextField(
+                        blank=True, max_length=256, null=True, verbose_name="Адрес"
+                    ),
+                ),
+                (
+                    "work_schedule",
+                    models.TextField(
+                        blank=True,
+                        max_length=256,
+                        null=True,
+                        verbose_name="График работы",
+                    ),
+                ),
+                (
+                    "phone_number_cell",
+                    models.CharField(
+                        blank=True,
+                        max_length=64,
+                        null=True,
+                        verbose_name="Мобильный телефон",
+                    ),
+                ),
+                (
+                    "phone_number_home",
+                    models.CharField(
+                        blank=True,
+                        max_length=64,
+                        null=True,
+                        verbose_name="Городской телефон",
+                    ),
+                ),
+                (
+                    "email_address",
+                    models.EmailField(
+                        blank=True, max_length=254, null=True, verbose_name="Email"
+                    ),
+                ),
+                (
+                    "entance_diagram",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Схема прохода в здание",
+                    ),
+                ),
+                (
+                    "parking_place",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Место для парковки",
+                    ),
+                ),
+                (
+                    "yandex_map",
+                    models.TextField(
+                        blank=True,
+                        max_length=1024,
+                        null=True,
+                        verbose_name="Карта на базе сервиса Яндекс.Карты",
+                    ),
+                ),
+                (
+                    "links",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="contacts",
+                        to="company_description.link",
+                        verbose_name="Ссылки",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Настройки контактов',
+                "verbose_name": "Настройки контактов",
             },
         ),
     ]

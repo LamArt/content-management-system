@@ -4,38 +4,136 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('services', '0001_initial'),
-        ('employees', '0001_initial'),
+        ("services", "0001_initial"),
+        ("employees", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Portfolio',
+            name="Portfolio",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('slug', models.SlugField(allow_unicode=True, max_length=256, unique=True, verbose_name='URL')),
-                ('meta_title', models.TextField(blank=True, default='', max_length=256, null=True, verbose_name='Заголовок')),
-                ('meta_keywords', models.TextField(blank=True, default='', max_length=256, null=True, verbose_name='Ключевые слова')),
-                ('meta_description', models.TextField(blank=True, default='', max_length=256, null=True, verbose_name='Описание')),
-                ('task_description', models.TextField(max_length=1024, verbose_name='Задача')),
-                ('problem_solve', models.TextField(blank=True, max_length=4096, null=True, verbose_name='Решение')),
-                ('client_result', models.TextField(blank=True, max_length=4096, null=True, verbose_name='Результат для клиента')),
-                ('image_avatar', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Фото клиента')),
-                ('video', models.URLField(blank=True, null=True, verbose_name='Видео')),
-                ('completion_date_result', models.CharField(blank=True, max_length=128, null=True, verbose_name='Срок достижения результата')),
-                ('employees', models.ManyToManyField(blank=True, related_name='portfolios', to='employees.employee', verbose_name='Сотрудники')),
-                ('services', models.ManyToManyField(blank=True, related_name='portfolios', to='services.service', verbose_name='Услуги')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                (
+                    "slug",
+                    models.SlugField(
+                        allow_unicode=True,
+                        max_length=256,
+                        unique=True,
+                        verbose_name="URL",
+                    ),
+                ),
+                (
+                    "meta_title",
+                    models.TextField(
+                        blank=True,
+                        default="",
+                        max_length=256,
+                        null=True,
+                        verbose_name="Заголовок",
+                    ),
+                ),
+                (
+                    "meta_keywords",
+                    models.TextField(
+                        blank=True,
+                        default="",
+                        max_length=256,
+                        null=True,
+                        verbose_name="Ключевые слова",
+                    ),
+                ),
+                (
+                    "meta_description",
+                    models.TextField(
+                        blank=True,
+                        default="",
+                        max_length=256,
+                        null=True,
+                        verbose_name="Описание",
+                    ),
+                ),
+                (
+                    "task_description",
+                    models.TextField(max_length=1024, verbose_name="Задача"),
+                ),
+                (
+                    "problem_solve",
+                    models.TextField(
+                        blank=True, max_length=4096, null=True, verbose_name="Решение"
+                    ),
+                ),
+                (
+                    "client_result",
+                    models.TextField(
+                        blank=True,
+                        max_length=4096,
+                        null=True,
+                        verbose_name="Результат для клиента",
+                    ),
+                ),
+                (
+                    "image_avatar",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Фото клиента",
+                    ),
+                ),
+                ("video", models.URLField(blank=True, null=True, verbose_name="Видео")),
+                (
+                    "completion_date_result",
+                    models.CharField(
+                        blank=True,
+                        max_length=128,
+                        null=True,
+                        verbose_name="Срок достижения результата",
+                    ),
+                ),
+                (
+                    "employees",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="portfolios",
+                        to="employees.employee",
+                        verbose_name="Сотрудники",
+                    ),
+                ),
+                (
+                    "services",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="portfolios",
+                        to="services.service",
+                        verbose_name="Услуги",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Портфолио',
-                'verbose_name_plural': 'Портфолио',
+                "verbose_name": "Портфолио",
+                "verbose_name_plural": "Портфолио",
             },
         ),
     ]

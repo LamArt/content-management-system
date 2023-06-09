@@ -4,124 +4,360 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('services', '0001_initial'),
+        ("services", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Administrator',
+            name="Administrator",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('full_name', models.CharField(max_length=256, verbose_name='ФИО')),
-                ('image_photo', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Фотография сотрудника')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                ("full_name", models.CharField(max_length=256, verbose_name="ФИО")),
+                (
+                    "image_photo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Фотография сотрудника",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Администратор',
-                'verbose_name_plural': 'Администраторы',
-                'ordering': ['ordering'],
-                'abstract': False,
+                "verbose_name": "Администратор",
+                "verbose_name_plural": "Администраторы",
+                "ordering": ["ordering"],
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Director',
+            name="Director",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('full_name', models.CharField(max_length=256, verbose_name='ФИО')),
-                ('image_photo', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Фотография сотрудника')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                ("full_name", models.CharField(max_length=256, verbose_name="ФИО")),
+                (
+                    "image_photo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Фотография сотрудника",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Руководитель',
-                'verbose_name_plural': 'Руководители',
-                'ordering': ['ordering'],
-                'abstract': False,
+                "verbose_name": "Руководитель",
+                "verbose_name_plural": "Руководители",
+                "ordering": ["ordering"],
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='EmployeeCertificateImage',
+            name="EmployeeCertificateImage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('name', models.CharField(max_length=256, verbose_name='Имя изображения')),
-                ('path', models.ImageField(upload_to='images/%Y/%m/%d/', verbose_name='Изображение')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                (
+                    "name",
+                    models.CharField(max_length=256, verbose_name="Имя изображения"),
+                ),
+                (
+                    "path",
+                    models.ImageField(
+                        upload_to="images/%Y/%m/%d/", verbose_name="Изображение"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Сертификат сотрудника',
-                'verbose_name_plural': 'Сертификаты сотрудника',
-                'ordering': ['ordering'],
+                "verbose_name": "Сертификат сотрудника",
+                "verbose_name_plural": "Сертификаты сотрудника",
+                "ordering": ["ordering"],
             },
         ),
         migrations.CreateModel(
-            name='EmployeeEducationImage',
+            name="EmployeeEducationImage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('name', models.CharField(max_length=256, verbose_name='Имя изображения')),
-                ('path', models.ImageField(upload_to='images/%Y/%m/%d/', verbose_name='Изображение')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                (
+                    "name",
+                    models.CharField(max_length=256, verbose_name="Имя изображения"),
+                ),
+                (
+                    "path",
+                    models.ImageField(
+                        upload_to="images/%Y/%m/%d/", verbose_name="Изображение"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Образование сотрудника',
-                'verbose_name_plural': 'Образование сотрудника',
-                'ordering': ['ordering'],
+                "verbose_name": "Образование сотрудника",
+                "verbose_name_plural": "Образование сотрудника",
+                "ordering": ["ordering"],
             },
         ),
         migrations.CreateModel(
-            name='JuniorStaff',
+            name="JuniorStaff",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('full_name', models.CharField(max_length=256, verbose_name='ФИО')),
-                ('image_photo', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Фотография сотрудника')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                ("full_name", models.CharField(max_length=256, verbose_name="ФИО")),
+                (
+                    "image_photo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Фотография сотрудника",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Младший персонал',
-                'verbose_name_plural': 'Младший персонал',
-                'ordering': ['ordering'],
-                'abstract': False,
+                "verbose_name": "Младший персонал",
+                "verbose_name_plural": "Младший персонал",
+                "ordering": ["ordering"],
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Employee',
+            name="Employee",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Время создания')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Время изменения')),
-                ('ordering', models.PositiveIntegerField(default=0)),
-                ('slug', models.SlugField(allow_unicode=True, max_length=256, unique=True, verbose_name='URL')),
-                ('meta_title', models.TextField(blank=True, default='', max_length=256, null=True, verbose_name='Заголовок')),
-                ('meta_keywords', models.TextField(blank=True, default='', max_length=256, null=True, verbose_name='Ключевые слова')),
-                ('meta_description', models.TextField(blank=True, default='', max_length=256, null=True, verbose_name='Описание')),
-                ('full_name', models.CharField(max_length=256, verbose_name='ФИО')),
-                ('image_photo', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Фотография сотрудника')),
-                ('image_client_photo', models.ImageField(blank=True, null=True, upload_to='images/%Y/%m/%d/', verbose_name='Фотография клиента с результатом работы')),
-                ('video', models.URLField(blank=True, null=True, verbose_name='Видео с представлением сотрудника')),
-                ('specialization', models.TextField(blank=True, max_length=256, null=True, verbose_name='Специализация')),
-                ('skills', models.TextField(blank=True, max_length=1024, null=True, verbose_name='Навыки врача')),
-                ('start_year', models.PositiveSmallIntegerField(blank=True, null=True, verbose_name='Стаж работы')),
-                ('certificate_images', models.ManyToManyField(blank=True, to='employees.employeecertificateimage', verbose_name='Сертификаты')),
-                ('education_images', models.ManyToManyField(blank=True, to='employees.employeeeducationimage', verbose_name='Образование')),
-                ('services', models.ManyToManyField(blank=True, related_name='employees', to='services.service', verbose_name='Услуги')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, db_index=True, verbose_name="Время создания"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="Время изменения"),
+                ),
+                ("ordering", models.PositiveIntegerField(default=0)),
+                (
+                    "slug",
+                    models.SlugField(
+                        allow_unicode=True,
+                        max_length=256,
+                        unique=True,
+                        verbose_name="URL",
+                    ),
+                ),
+                (
+                    "meta_title",
+                    models.TextField(
+                        blank=True,
+                        default="",
+                        max_length=256,
+                        null=True,
+                        verbose_name="Заголовок",
+                    ),
+                ),
+                (
+                    "meta_keywords",
+                    models.TextField(
+                        blank=True,
+                        default="",
+                        max_length=256,
+                        null=True,
+                        verbose_name="Ключевые слова",
+                    ),
+                ),
+                (
+                    "meta_description",
+                    models.TextField(
+                        blank=True,
+                        default="",
+                        max_length=256,
+                        null=True,
+                        verbose_name="Описание",
+                    ),
+                ),
+                ("full_name", models.CharField(max_length=256, verbose_name="ФИО")),
+                (
+                    "image_photo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Фотография сотрудника",
+                    ),
+                ),
+                (
+                    "image_client_photo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="images/%Y/%m/%d/",
+                        verbose_name="Фотография клиента с результатом работы",
+                    ),
+                ),
+                (
+                    "video",
+                    models.URLField(
+                        blank=True,
+                        null=True,
+                        verbose_name="Видео с представлением сотрудника",
+                    ),
+                ),
+                (
+                    "specialization",
+                    models.TextField(
+                        blank=True,
+                        max_length=256,
+                        null=True,
+                        verbose_name="Специализация",
+                    ),
+                ),
+                (
+                    "skills",
+                    models.TextField(
+                        blank=True,
+                        max_length=1024,
+                        null=True,
+                        verbose_name="Навыки врача",
+                    ),
+                ),
+                (
+                    "start_year",
+                    models.PositiveSmallIntegerField(
+                        blank=True, null=True, verbose_name="Стаж работы"
+                    ),
+                ),
+                (
+                    "certificate_images",
+                    models.ManyToManyField(
+                        blank=True,
+                        to="employees.employeecertificateimage",
+                        verbose_name="Сертификаты",
+                    ),
+                ),
+                (
+                    "education_images",
+                    models.ManyToManyField(
+                        blank=True,
+                        to="employees.employeeeducationimage",
+                        verbose_name="Образование",
+                    ),
+                ),
+                (
+                    "services",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="employees",
+                        to="services.service",
+                        verbose_name="Услуги",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Сотрудник',
-                'verbose_name_plural': 'Сотрудники',
-                'ordering': ['ordering'],
-                'abstract': False,
+                "verbose_name": "Сотрудник",
+                "verbose_name_plural": "Сотрудники",
+                "ordering": ["ordering"],
+                "abstract": False,
             },
         ),
     ]

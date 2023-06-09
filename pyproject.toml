@@ -30,6 +30,7 @@ optional = true
 setuptools = "^67.8.0"
 pytest = "^7.3.1"
 pytest-django = "^4.5.2"
+black = "^23.3.0"
 
 
 [tool.poetry.group.production]
