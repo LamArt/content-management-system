@@ -2,7 +2,7 @@
 name = "content-management-system"
 version = "0.1.0"
 description = ""
-authors = ["hecronk <damiraminov1@yandex.ru>"]
+authors = ["damiraminov1 <damiraminov1@yandex.ru>"]
 readme = "README.md"
 packages = [{include = "content_management_system"}]
 
